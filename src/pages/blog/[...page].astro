@@ -5,9 +5,13 @@ import { getCollection } from 'astro:content'
 import Base from '@/layouts/Base.astro'
 import PostPreview from '@/components/PostPreview.astro'
 
-export async function getStaticPaths({ paginate }) {
-  const posts = await getCollection("blog");
-  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const posts: CollectionEntry<'blog'>[] = await getCollection("blog");
+  posts.sort((a, b) => {
+    const dateA = new Date(a.data.pubDate).valueOf();
+    const dateB = new Date(b.data.pubDate).valueOf();
+    return dateB - dateA;
+  });
   return paginate(posts, { pageSize: 10 });
 }
 
