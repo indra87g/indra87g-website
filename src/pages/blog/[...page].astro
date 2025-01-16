@@ -1,6 +1,7 @@
 ---
 import config from '@/config'
-import { getCollection } from 'astro:content'
+import type { PaginateFunction } from 'astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
 
 import Base from '@/layouts/Base.astro'
 import PostPreview from '@/components/PostPreview.astro'
