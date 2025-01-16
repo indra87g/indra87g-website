@@ -26,7 +26,13 @@ const {
     <main
       class="min-h-[calc(100dvh-70px)] py-10 pt-[120px] w500:min-h-[calc(100dvh-70px)] w400:pt-[140px]"
     >
-      <slot />
+        <div class="flex justify-center">
+          <main
+            class="p-6 pt-10 lg:max-w-[900px] w-full rounded-base border-2 border-border shadow-light dark:border-darkBorder dark:shadow-dark"
+          >
+            <slot />
+          </main>
+       </div>
     </main>
     <Footer />
 

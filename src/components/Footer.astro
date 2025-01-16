@@ -1,5 +1,20 @@
-<footer
-  class="flex h-[70px] items-center justify-center text-center w500:text-sm"
->
-  Copyright © 2024 | All rights reserved.
+---
+const today = new Date();
+---
+
+<footer class="w-full flex flex-col items-center justify-between rounded-base border-2 border-border gap-5 px-5 py-10 bg-white text-text dark:border-darkBorder dark:bg-secondaryBlack dark:text-darkText md:flex-row md:gap-0 md:px-24 2xl:p-32">
+  <!-- Brand / Logo -->
+  <h1 class="text-2xl font-bold text-center md:text-left">INDRA87G</h1>
+
+  <!-- Social Links -->
+  <div class="flex justify-center gap-5">
+    <a 
+      href="https://github.com/indra87g" 
+      target="_blank" 
+      aria-label="Github" 
+      title="Github"
+      class="rounded-base border-2 border-border bg-main p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
+    >
+    </a>
+  </div>
 </footer>

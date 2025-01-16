@@ -1,6 +1,6 @@
 {
-  "name": "astro-starter-template",
-  "type": "module",
+  "name": "indra87g",
+  "private": true,
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",

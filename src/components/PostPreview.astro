@@ -3,7 +3,7 @@ const { url, title, description, pubDate } = Astro.props
 ---
 
 <a
-  href={url}
+  href={`/blog/${url}`}
   class="rounded-base border-2 border-border bg-main p-4 text-text shadow-light transition-all last:mb-0 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:shadow-dark dark:hover:shadow-none"
 >
   <h2 class="text-xl font-heading w500:text-lg">
