@@ -8,6 +8,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
+import SpeedInsights from '@vercel/speed-insights/astro';
 const { title, description } = Astro.props
 
 const siteTitle = title ?? config.title
@@ -40,3 +41,5 @@ const siteDescription = description ?? config.description
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={siteTitle} />
 <meta property="twitter:description" content={siteDescription} />
+
+<SpeedInsights />

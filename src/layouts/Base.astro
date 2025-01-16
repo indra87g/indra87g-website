@@ -1,4 +1,5 @@
 ---
+import Analytics from '@vercel/analytics/astro';
 import config from '@/config'
 import { ViewTransitions } from 'astro:transitions'
 
@@ -16,6 +17,7 @@ const {
 
 <html lang={config.lang}>
   <head>
+    <Analytics />
     <BaseHead title={title} description={description} />
     <ViewTransitions />
   </head>

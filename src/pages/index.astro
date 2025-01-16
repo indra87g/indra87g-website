@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro'
+import IconPicker from '@/components/IconPicker.astro'
 ---
 
 <Base meta={{ title: 'indra87g - Homepage' }}>
@@ -7,6 +8,7 @@ import Base from '@/layouts/Base.astro'
     <div class="text-xl py-1">
       Hai 👋
     </div>
+
     <div class="text-5xl font-bold mb-3 border-b-2 border-border dark:border-border">
       Saya Indra Sah Noeldy
     </div>
@@ -21,7 +23,7 @@ import Base from '@/layouts/Base.astro'
 
 <div class="mt-8 flex gap-5">
       <a class="text-white rounded-base border-2 border-border bg-blue-600 p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:bg-blue-800 dark:shadow-dark dark:hover:shadow-none" href="https://facebook.com/indra87g" target="_blank">
-        Facebook
+        <IconPicker name="facebook" /> Facebook
       </a>
       <a class="text-white rounded-base border-2 border-border bg-red-600 p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:bg-rose-800 dark:shadow-dark dark:hover:shadow-none" href="https://trakteer.id/nightw5050" target="_blank">
         Trakteer Saya

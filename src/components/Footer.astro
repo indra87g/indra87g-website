@@ -1,20 +1,44 @@
 ---
 const today = new Date();
+const commitMessage = import.meta.env.VERCEL_GIT_COMMIT_MESSAGE || "No commit info";
+const commitSha = import.meta.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || "unknown";
 ---
 
-<footer class="w-full flex flex-col items-center justify-between rounded-base border-2 border-border gap-5 px-5 py-10 bg-white text-text dark:border-darkBorder dark:bg-secondaryBlack dark:text-darkText md:flex-row md:gap-0 md:px-24 2xl:p-32">
+<footer class="w-full flex flex-col items-center justify-between rounded-base border-2 border-border px-5 py-10 bg-secondaryBlack text-yellow-400 dark:border-darkBorder md:flex-row md:px-24 2xl:p-32">
   <!-- Brand / Logo -->
-  <h1 class="text-2xl font-bold text-center md:text-left">INDRA87G</h1>
+  <div class="flex flex-col items-center md:items-start">
+    <h1 class="text-2xl font-bold text-center md:text-left">INDRA87G</h1>
+    <p class="text-sm mt-2">© {today.getFullYear()}</p>
+    <p class="text-xs mt-1">v1.0.0, deployed at {today.toISOString().split('T')[0]}</p>
+    <p class="text-xs mt-1">Latest commit: <a href=`https://github.com/mazipan/mazipan.space/commit/${commitSha}`>{commitMessage}</a></p>
+  </div>
 
-  <!-- Social Links -->
-  <div class="flex justify-center gap-5">
-    <a 
-      href="https://github.com/indra87g" 
-      target="_blank" 
-      aria-label="Github" 
-      title="Github"
-      class="rounded-base border-2 border-border bg-main p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none"
-    >
-    </a>
+  <!-- Navigation Links -->
+  <div class="grid grid-cols-2 gap-4 text-center md:grid-cols-3 md:gap-8">
+    <div>
+      <h3 class="font-semibold">General</h3>
+      <ul class="space-y-2">
+        <li><a href="/blog" class="hover:underline">Blog</a></li>
+        <li><a href="/explore" class="hover:underline">Explore</a></li>
+        <li><a href="/projects" class="hover:underline">Projects</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold">Navigations</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">Talks</a></li>
+        <li><a href="#" class="hover:underline">Credits</a></li>
+        <li><a href="#" class="hover:underline">Support</a></li>
+        <li><a href="#" class="hover:underline">Resume</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold">Ext. Resources</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:underline">Bookmarks</a></li>
+        <li><a href="#" class="hover:underline">Analytics</a></li>
+        <li><a href="#" class="hover:underline">RSS</a></li>
+      </ul>
+    </div>
   </div>
 </footer>
