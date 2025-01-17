@@ -8,7 +8,9 @@ const blogCollection = defineCollection({
     pubDate: z.string().or(z.date()),
     tags: z.array(z.string())
   }),
-  slug: ({ id }) => id.split('/').pop()?.replace('.md', '') || '',
+  slug: ({ id }) => typeof id === 'string' 
+  ? id.split('/').pop()?.replace('.md', '') || '' 
+  : ''
 })
 
 export const collections = {
