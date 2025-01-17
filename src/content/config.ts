@@ -7,11 +7,12 @@ const blogCollection = defineCollection({
     description: z.string(),
     pubDate: z.string().or(z.date()),
     tags: z.array(z.string())
-  })
+  }),
+  slug: ({ id }) => id.split('/').pop()?.replace('.md', '') || '',
 })
 
 export const collections = {
   blog: blogCollection
 }
 
-export type Post = CollectionEntry<'posts'>
+export type Post = CollectionEntry<'blog'>
