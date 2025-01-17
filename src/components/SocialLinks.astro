@@ -1,0 +1,75 @@
+---
+import { Icon } from 'astro-icon/components'
+
+import { CONFIG_CLIENT } from '@/config/client.ts'
+
+const {
+    AUTHOR_EMAIL,
+    AUTHOR_FACEBOOK,
+    AUTHOR_LINKEDIN,
+    AUTHOR_YOUTUBE,
+    AUTHOR_BLUESKY,
+    AUTHOR_GITHUB,
+    AUTHOR_WHATSAPP,
+    AUTHOR_TRAKTEER
+} = CONFIG_CLIENT
+---
+
+<ul class="flex flex-wrap gap-2 xs:flex-nowrap lg:items-center">
+  <li>
+    <a
+      href={`mailto:${AUTHOR_EMAIL}`}
+      target="_blank"
+      rel="me noreferrer noopener"
+      title="Email"
+      class="flex items-center gap-2 text-base xs:text-lg"
+    >
+      <Icon name="fa6-solid:envelope" class="h-6 w-6 fill-current" />
+    </a>
+  </li>
+  <li>
+    <a
+      href={`${AUTHOR_FACEBOOK}`}
+      target="_blank"
+      rel="me noreferrer noopener"
+      title="Facebook"
+      class="flex items-center gap-2 text-base xs:text-lg"
+    >
+      <Icon name="fa6-brands:facebook" class="h-6 w-6 fill-current text-blue-600" />
+    </a>
+  </li>
+ <li>
+    <a
+      href={`${AUTHOR_LINKEDIN}`}
+      target="_blank"
+      rel="me noreferrer noopener"
+      title="Linkedin"
+      class="flex items-center gap-2 text-base xs:text-lg"
+    >
+      <Icon name="fa6-brands:linkedin" class="h-6 w-6 fill-current text-sky-600" />
+    </a>
+  </li>
+ <li>
+    <a
+      href={`${AUTHOR_GITHUB}`}
+      target="_blank"
+      rel="me noreferrer noopener"
+      title="Github"
+      class="flex items-center gap-2 text-base xs:text-lg"
+    >
+      <Icon name="fa6-brands:github" class="h-6 w-6 fill-current text-slate-600 dark:text-teal-600" />
+    </a>
+  </li>
+ <li>
+    <a
+      href={`${AUTHOR_TRAKTEER}`}
+      target="_blank"
+      rel="me noreferrer noopener"
+      title="Trakteer"
+      class="flex items-center gap-2 text-base xs:text-lg"
+    >
+      <Icon name="fa6-solid:money-bill" class="h-6 w-6 fill-current text-rose-600" />
+    </a>
+  </li>
+</ul>
+

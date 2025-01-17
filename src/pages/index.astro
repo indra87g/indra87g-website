@@ -1,36 +1,32 @@
 ---
 import Base from '@/layouts/Base.astro'
-import IconPicker from '@/components/IconPicker.astro'
+import { Image } from 'astro:assets'
+import SocialLinks from '@/components/SocialLinks.astro'
+import BrutalTag from '@/components/BrutalTag.astro'
+
+import { PROFILE } from '@/constants/profile.ts'
 ---
 
 <Base meta={{ title: 'indra87g - Homepage' }}>
     <div class="pb-12 mt-5 text-text dark:text-darkText">
-    <div class="text-xl py-1">
-      Hai 👋
+    <SocialLinks />
+    <div class="text-5xl font-bold mb-3">
+      {PROFILE.NAME}
     </div>
-
-    <div class="text-5xl font-bold mb-3 border-b-2 border-border dark:border-border">
-      Saya Indra Sah Noeldy
-    </div>
-    <div class="text-3xl py-3 font-bold mb-5 text-text dark:text-darkText">
-      Developer, Content Creator, dan Gamer
+    <BrutalTag emoji="🤣" text="Fullstuck Developer" />
+    <div class="relative h-[250px] w-[250px]">
+        <Image
+          height={250}
+          width={250}
+          src="/profile.jpg"
+          alt="MZP Avatar"
+          class="relative z-10 rounded-full"
+        />
     </div>
     <div class="py-2">
       <p class="text-lg">
-        Nama saya Indra Sah Noeldy Girsang, biasa dipanggil Indra. Saya lahir pada 7 Mei 2009 di Sidikalang. Saya adalah seorang Fullstack Developer Pemula yang sangat menyukai bahasa pemrograman Python.
+        {PROFILE.TAGLINE}
       </p>
-    </div>
-
-<div class="mt-8 flex gap-5">
-      <a class="text-white rounded-base border-2 border-border bg-blue-600 p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:bg-blue-800 dark:shadow-dark dark:hover:shadow-none" href="https://facebook.com/indra87g" target="_blank">
-        <IconPicker name="facebook" /> Facebook
-      </a>
-      <a class="text-white rounded-base border-2 border-border bg-red-600 p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:bg-rose-800 dark:shadow-dark dark:hover:shadow-none" href="https://trakteer.id/nightw5050" target="_blank">
-        Trakteer Saya
-      </a>
-      <a class="text-white rounded-base border-2 border-border bg-green-600 p-3 shadow-light hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:bg-emerald-800 dark:shadow-dark dark:hover:shadow-none" href="https://whatsapp.com/channel/0029VaeAHrNK0IBcqc9tzv2y" target="_blank">
-        Whatsapp Channel
-      </a>
     </div>
   </div>
 
