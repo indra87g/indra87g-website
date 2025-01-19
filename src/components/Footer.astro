@@ -1,16 +1,26 @@
 ---
-const today = new Date();
-const commitMessage = import.meta.env.VERCEL_GIT_COMMIT_MESSAGE || "No commit info";
-const commitSha = import.meta.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || "unknown";
+const today = new Date()
+const commitMessage =
+  import.meta.env.VERCEL_GIT_COMMIT_MESSAGE || 'No commit info'
+const commitSha =
+  import.meta.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'unknown'
 ---
 
-<footer class="w-full flex flex-col items-center justify-between rounded-base border-2 border-border px-5 py-10  text-yellow-600 bg-white dark:bg-secondaryBlack dark:border-darkBorder dark:text-yellow-400 md:flex-row md:px-24 2xl:p-32">
+<footer
+  class="flex w-full flex-col items-center justify-between rounded-base border-2 border-border bg-white px-5 py-10 text-yellow-600 dark:border-darkBorder dark:bg-secondaryBlack dark:text-yellow-400 md:flex-row md:px-24 2xl:p-32"
+>
   <!-- Brand / Logo -->
   <div class="flex flex-col items-center md:items-start">
-    <h1 class="text-2xl font-bold text-center md:text-left">INDRA87G</h1>
-    <p class="text-sm mt-2">© {today.getFullYear()}</p>
-    <p class="text-xs mt-1">v1.0.0, deployed at {today.toISOString().split('T')[0]}</p>
-    <p class="text-xs mt-1">Latest commit: <a href=`https://github.com/mazipan/mazipan.space/commit/${commitSha}`>{commitMessage}</a></p>
+    <h1 class="text-center text-2xl font-bold md:text-left">INDRA87G</h1>
+    <p class="mt-2 text-sm">© {today.getFullYear()}</p>
+    <p class="mt-1 text-xs">
+      v1.0.0, deployed at {today.toISOString().split('T')[0]}
+    </p>
+    <p class="mt-1 text-xs">
+      Latest commit: <a
+        href=`https://github.com/mazipan/mazipan.space/commit/${commitSha}`
+        >{commitMessage}</a>
+    </p>
   </div>
 
   <!-- Navigation Links -->

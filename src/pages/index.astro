@@ -8,20 +8,20 @@ import { PROFILE } from '@/constants/profile.ts'
 ---
 
 <Base meta={{ title: 'indra87g - Homepage' }}>
-    <div class="pb-12 mt-5 text-text dark:text-darkText">
+  <div class="mt-5 pb-12 text-text dark:text-darkText">
     <SocialLinks />
-    <div class="text-5xl font-bold mb-3">
+    <div class="mb-3 text-5xl font-bold">
       {PROFILE.NAME}
     </div>
     <BrutalTag emoji="🤣" text="Fullstuck Developer" />
     <div class="relative h-[250px] w-[250px]">
-        <Image
-          height={250}
-          width={250}
-          src="/profile.jpg"
-          alt="MZP Avatar"
-          class="relative z-10 rounded-full"
-        />
+      <Image
+        height={250}
+        width={250}
+        src="/profile.jpg"
+        alt="indra87g Avatar"
+        class="relative z-10 rounded-full"
+      />
     </div>
     <div class="py-2">
       <p class="text-lg">
@@ -29,5 +29,4 @@ import { PROFILE } from '@/constants/profile.ts'
       </p>
     </div>
   </div>
-
 </Base>

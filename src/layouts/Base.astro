@@ -1,5 +1,5 @@
 ---
-import Analytics from '@vercel/analytics/astro';
+import Analytics from '@vercel/analytics/astro'
 import config from '@/config'
 import { ViewTransitions } from 'astro:transitions'
 
@@ -28,13 +28,13 @@ const {
     <main
       class="min-h-[calc(100dvh-70px)] py-10 pt-[120px] w500:min-h-[calc(100dvh-70px)] w400:pt-[140px]"
     >
-        <div class="flex justify-center">
-          <main
-            class="p-6 pt-10 lg:max-w-[900px] w-full rounded-base border-2 border-border shadow-light dark:border-darkBorder dark:shadow-dark"
-          >
-            <slot />
-          </main>
-       </div>
+      <div class="flex justify-center">
+        <main
+          class="w-full rounded-base border-2 border-border p-6 pt-10 shadow-light dark:border-darkBorder dark:shadow-dark lg:max-w-[900px]"
+        >
+          <slot />
+        </main>
+      </div>
     </main>
     <Footer />
 
@@ -50,13 +50,13 @@ const {
           document.documentElement.classList.add('dark')
           document.documentElement.setAttribute(
             'data-theme',
-            config.themes.dark as string
+            config.themes.dark as string,
           )
         } else {
           document.documentElement.classList.remove('dark')
           document.documentElement.setAttribute(
             'data-theme',
-            config.themes.light as string
+            config.themes.light as string,
           )
         }
       }

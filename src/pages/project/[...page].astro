@@ -4,14 +4,14 @@ import type { PaginateFunction } from 'astro'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
 import Base from '@/layouts/Base.astro'
-import Card from '@/components/PostCard.astro'
+import Card from '@/components/ProjectCard.astro'
 
 export async function getStaticPaths({
   paginate,
 }: {
   paginate: PaginateFunction
 }) {
-  const blogs: CollectionEntry<'blog'>[] = await getCollection('blog')
+  const blogs: CollectionEntry<'project'>[] = await getCollection('project')
   blogs.sort((a, b) => {
     const dateA = new Date(a.data.publishDate).valueOf()
     const dateB = new Date(b.data.publishDate).valueOf()
@@ -20,8 +20,8 @@ export async function getStaticPaths({
   return paginate(blogs, { pageSize: 10 })
 }
 
-const allPosts = await getCollection('blog')
-const sortedPosts = allPosts.sort(
+const allProjects = await getCollection('project')
+const sortedProjects = allProjects.sort(
   (a, b) =>
     new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
 )
@@ -30,15 +30,15 @@ const sortedPosts = allPosts.sort(
 <Base meta={{ title: config.title }}>
   <div class="grid grid-cols-2 gap-5 w700:grid-cols-1">
     {
-      sortedPosts.map((post) => (
+      sortedProjects.map((project) => (
         <Card
-          url={post.slug}
-          heroImage={post.data.heroImage}
-          heroAlt={post.data.heroAlt}
-          draft={post.data.draft}
-          title={post.data.title}
-          description={post.data.description}
-          publishDate={post.data.publishDate}
+          url={project.slug}
+          heroImage={project.data.heroImage}
+          heroAlt={project.data.heroAlt}
+          draft={project.data.draft}
+          title={project.data.title}
+          description={project.data.description}
+          publishDate={project.data.publishDate}
         />
       ))
     }

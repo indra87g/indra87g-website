@@ -1,11 +1,19 @@
 ---
-const { url, title, description, pubDate } = Astro.props
+import { Image } from 'astro:assets'
+const { url, heroImage, heroAlt, title, description, draft, publishDate } = Astro.props
 ---
 
 <a
-  href={`/blog/${url}`}
+  href={`/project/${url}`}
   class="rounded-base border-2 border-border bg-main p-4 text-text shadow-light transition-all last:mb-0 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:shadow-dark dark:hover:shadow-none"
 >
+  <Image
+    width={1280}
+    height={640}
+    src={heroImage}
+    alt={heroAlt}
+    class="hover:transform-perspective mb-2 rounded-t-2xl transition-transform duration-300"
+  />
   <h2 class="text-xl font-heading w500:text-lg">
     {title}
   </h2>
@@ -25,7 +33,7 @@ const { url, title, description, pubDate } = Astro.props
         transform="translate(-61 -152)"></path>
     </svg>
     <p class="text-sm leading-5 tracking-wide w500:text-xs">
-      {pubDate}
+      {publishDate}
     </p>
   </div>
 </a>

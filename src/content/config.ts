@@ -1,17 +1,19 @@
-import { z, defineCollection, type CollectionEntry } from 'astro:content';
+import { defineCollection } from 'astro:content'
+
+import { blogSchema } from '@/schemas/blog'
+import { projectSchema } from '@/schemas/project'
 
 const blogCollection = defineCollection({
   type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    pubDate: z.string().or(z.date()),
-    tags: z.array(z.string()),
-  }),
-});
+  schema: blogSchema,
+})
+
+const projectCollection = defineCollection({
+  type: 'content',
+  schema: projectSchema,
+})
 
 export const collections = {
   blog: blogCollection,
-};
-
-export type Post = CollectionEntry<'blog'>;
+  project: projectCollection,
+}

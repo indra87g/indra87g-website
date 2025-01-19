@@ -2,16 +2,16 @@
 import { getCollection } from 'astro:content'
 
 import Base from '@/layouts/Base.astro'
-import Card from '@/components/PostCard.astro'
+import Card from '@/components/ProjectCard.astro'
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog')
+  const allProjects = await getCollection('project')
 
-  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+  const uniqueTags = [...new Set(allProjects.map((project) => project.data.tags).flat())]
 
   return uniqueTags.map((tag: string) => {
-    const filteredPosts = allPosts.filter((post) =>
-      post.data.tags.includes(tag),
+    const filteredPosts = allProjects.filter((project) =>
+      project.data.tags.includes(tag),
     )
     return {
       params: { tag },
@@ -30,14 +30,14 @@ const { posts } = Astro.props
   </h2>
   <div class="grid grid-cols-2 gap-5 w700:grid-cols-1">
     {
-      posts.map((post) => (
+      posts.map((project) => (
         <Card
-          url={`/${post.slug}`}
-          heroImage={post.data.heroImage}
-          heroAlt={post.data.heroAlt}
-          title={post.data.title}
-          description={post.data.description}
-          publishbDate={post.data.publishDate}
+          url={`/${project.slug}`}
+          heroImage={project.data.heroImage}
+          heroAlt={project.data.heroAlt}
+          title={project.data.title}
+          description={project.data.description}
+          publishbDate={project.data.publishDate}
         />
       ))
     }
