@@ -1,6 +1,6 @@
 import { z } from 'astro:content'
 
-//import { DEFAULTS_PROJECT } from '@/constants/collections';
+//import { DEFAULTS_PROJECT } from '../constants/collections';
 
 import type { SchemaContext } from 'astro:content'
 

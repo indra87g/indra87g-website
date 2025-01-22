@@ -1,11 +1,11 @@
 ---
 import Analytics from '@vercel/analytics/astro'
-import config from '@/config'
+import config from '../config'
 import { ViewTransitions } from 'astro:transitions'
 
-import BaseHead from '@/components/BaseHead.astro'
-import Nav from '@/components/Nav.astro'
-import Footer from '@/components/Footer.astro'
+import BaseHead from '../components/BaseHead.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
 
 import '@fontsource/inter/600.css'
 import '@fontsource/inter/400.css'
@@ -39,7 +39,7 @@ const {
     <Footer />
 
     <script>
-      import config from '@/config'
+      import config from '../config'
 
       function colorMode() {
         if (
