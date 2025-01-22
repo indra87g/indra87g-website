@@ -1,4 +1,6 @@
 ---
+import { formatDate } from '@/lib/date.ts'
+
 import '@/global.css'
 
 import Base from '@/layouts/Base.astro'
@@ -14,7 +16,7 @@ const { frontmatter } = Astro.props
   >
     <InfoHeader
       title={frontmatter.title}
-      date={frontmatter.publishDate}
+      date={formatDate(frontmatter.publishDate)}
       tags={frontmatter.tags}
     />
     <slot />

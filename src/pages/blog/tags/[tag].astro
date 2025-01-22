@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import { formatDate } from '@/lib/date.ts'
 
 import Base from '@/layouts/Base.astro'
 import Card from '@/components/PostCard.astro'
@@ -37,7 +38,7 @@ const { posts } = Astro.props
           heroAlt={post.data.heroAlt}
           title={post.data.title}
           description={post.data.description}
-          publishbDate={post.data.publishDate}
+          publishDate={formatDate(post.data.publishDate)}
         />
       ))
     }

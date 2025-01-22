@@ -2,6 +2,7 @@
 import config from '@/config'
 import type { PaginateFunction } from 'astro'
 import { getCollection, type CollectionEntry } from 'astro:content'
+import { formatDate } from '@/lib/date.ts'
 
 import Base from '@/layouts/Base.astro'
 import Card from '@/components/ProjectCard.astro'
@@ -23,7 +24,8 @@ export async function getStaticPaths({
 const allProjects = await getCollection('project')
 const sortedProjects = allProjects.sort(
   (a, b) =>
-    new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf(),
+    new Date(b.data.publishDate).valueOf() -
+    new Date(a.data.publishDate).valueOf(),
 )
 ---
 
@@ -38,7 +40,7 @@ const sortedProjects = allProjects.sort(
           draft={project.data.draft}
           title={project.data.title}
           description={project.data.description}
-          publishDate={project.data.publishDate}
+          publishDate={formatDate(project.data.publishDate)}
         />
       ))
     }

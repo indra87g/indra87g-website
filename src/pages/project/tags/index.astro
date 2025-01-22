@@ -4,7 +4,9 @@ import { getCollection } from 'astro:content'
 import Base from '@/layouts/Base.astro'
 
 const allProjects = await getCollection('project')
-const tags = [...new Set(allProjects.map((project) => project.data.tags).flat())]
+const tags = [
+  ...new Set(allProjects.map((project) => project.data.tags).flat()),
+]
 ---
 
 <Base meta={{ title: 'Tags' }}>

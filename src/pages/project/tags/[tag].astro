@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import { formatDate } from '@/lib/date.ts'
 
 import Base from '@/layouts/Base.astro'
 import Card from '@/components/ProjectCard.astro'
@@ -7,7 +8,9 @@ import Card from '@/components/ProjectCard.astro'
 export async function getStaticPaths() {
   const allProjects = await getCollection('project')
 
-  const uniqueTags = [...new Set(allProjects.map((project) => project.data.tags).flat())]
+  const uniqueTags = [
+    ...new Set(allProjects.map((project) => project.data.tags).flat()),
+  ]
 
   return uniqueTags.map((tag: string) => {
     const filteredPosts = allProjects.filter((project) =>
@@ -37,7 +40,7 @@ const { posts } = Astro.props
           heroAlt={project.data.heroAlt}
           title={project.data.title}
           description={project.data.description}
-          publishbDate={project.data.publishDate}
+          publishbDate={formatDate(project.data.publishDate)}
         />
       ))
     }

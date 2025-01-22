@@ -1,13 +1,13 @@
-import { z } from 'astro:content';
+import { z } from 'astro:content'
 
-import type { SchemaContext } from 'astro:content';
+import type { SchemaContext } from 'astro:content'
 
 /** lowercase tags for routes */
 const removeDuplicatesAndToLowerCase = (items: string[]) => {
-  const lowercaseItems = items.map((str) => str.toLowerCase());
-  const distinctItems = new Set(lowercaseItems);
-  return Array.from(distinctItems);
-};
+  const lowercaseItems = items.map((str) => str.toLowerCase())
+  const distinctItems = new Set(lowercaseItems)
+  return Array.from(distinctItems)
+}
 
 // schema and collection are separate
 export const blogSchema = ({ image }: SchemaContext) =>
@@ -19,5 +19,8 @@ export const blogSchema = ({ image }: SchemaContext) =>
     heroImage: image(),
     heroAlt: z.string().default('This is image'),
     draft: z.boolean(),
-    tags: z.array(z.string()).nonempty().transform(removeDuplicatesAndToLowerCase),
-  });
+    tags: z
+      .array(z.string())
+      .nonempty()
+      .transform(removeDuplicatesAndToLowerCase),
+  })
