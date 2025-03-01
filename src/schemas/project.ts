@@ -16,7 +16,7 @@ export const projectSchema = ({ image }: SchemaContext) =>
     description: z.string(),
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
-    heroImage: image(),
+    heroImage: z.string().default('/placeholder.webp'),
     heroAlt: z.string().default('This is image'),
     draft: z.boolean(),
     tags: z

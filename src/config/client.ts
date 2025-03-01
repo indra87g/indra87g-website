@@ -7,7 +7,7 @@ export const CONFIG_CLIENT = {
   AUTHOR_EMAIL: 'noeldycreator@gmail.com',
   AUTHOR_FACEBOOK: 'https://facebook.com/indra87g',
   AUTHOR_LINKEDIN: 'https://linkedin.com',
-  AUTHOR_BLUESKY: 'https://indra87g.bluesky.social',
+  AUTHOR_BLUESKY: 'https://indra87g.bsky.social',
   AUTHOR_YOUTUBE: 'https://youtube.com/@indra87g30spki',
   AUTHOR_GITHUB: 'https://github.com/indra87g',
   AUTHOR_WHATSAPP: 'https://wa.me/6289530428615',

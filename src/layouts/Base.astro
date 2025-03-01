@@ -1,7 +1,6 @@
 ---
 import Analytics from '@vercel/analytics/astro'
 import config from '../config'
-import { ViewTransitions } from 'astro:transitions'
 
 import BaseHead from '../components/BaseHead.astro'
 import Nav from '../components/Nav.astro'
@@ -19,7 +18,6 @@ const {
   <head>
     <Analytics />
     <BaseHead title={title} description={description} />
-    <ViewTransitions />
   </head>
   <body
     class="mx-auto max-w-[900px] bg-bg px-5 font-base text-text scrollbar scrollbar-thumb-black dark:bg-darkBg dark:text-darkText dark:scrollbar-thumb-white"

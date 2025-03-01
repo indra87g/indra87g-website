@@ -16,7 +16,7 @@ export const blogSchema = ({ image }: SchemaContext) =>
     updatedDate: z.coerce.date().optional(),
     title: z.string(),
     description: z.string(),
-    heroImage: image(),
+    heroImage: z.string().default('/placeholder.webp'),
     heroAlt: z.string().default('This is image'),
     draft: z.boolean(),
     tags: z

@@ -8,12 +8,10 @@
     "jsxImportSource": "react",
     "noEmit": true,
     "skipLibCheck": true,
-    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"],
-      "@/lib/*": ["lib/*"]
-    },
-    "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
-    "exclude": ["dist", "docs", "node_modules"]
-  }
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "exclude": ["dist", "docs", "node_modules"]
 }

@@ -4,7 +4,7 @@ import { Image } from 'astro:assets'
 import SocialLinks from '../components/SocialLinks.astro'
 import BrutalTag from '../components/BrutalTag.astro'
 
-import { PROFILE } from '../constants/profile.ts'
+import { PROFILE } from '../constants/profile'
 ---
 
 <Base meta={{ title: 'indra87g - Homepage' }}>
@@ -14,10 +14,8 @@ import { PROFILE } from '../constants/profile.ts'
     <div class="max-w-md">
       <BrutalTag emoji="🤣" text="Fullstuck Developer" />
       <p class="mt-4 text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam dicta
-        officia debitis molestiae natus, hic illo eveniet quia. Ad quae
-        accusamus cumque ducimus voluptatum explicabo ratione labore est quasi
-        rerum!
+        Saya adalah seorang Fullstuck Developer yang sangat cupu. ngoding Python aja
+        kadang ngeblank, plus suka FOMO sama tech stack terbaru. Ajarin dong puh, sepuh🙏.
       </p>
     </div>
 
@@ -44,6 +42,6 @@ import { PROFILE } from '../constants/profile.ts'
       <div class="mt-4 flex gap-4">
         <SocialLinks />
       </div>
-    </div>
+    </div
   </div>
 </Base>

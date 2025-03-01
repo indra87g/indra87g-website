@@ -13,18 +13,18 @@ export async function getStaticPaths() {
   ]
 
   return uniqueTags.map((tag: string) => {
-    const filteredPosts = allProjects.filter((project) =>
+    const filteredProjects = allProjects.filter((project) =>
       project.data.tags.includes(tag),
     )
     return {
       params: { tag },
-      props: { posts: filteredPosts },
+      props: { projects: filteredProjects },
     }
   })
 }
 
 const { tag } = Astro.params
-const { posts } = Astro.props
+const { projects } = Astro.props
 ---
 
 <Base meta={{ title: 'Posts tagged with ' + tag }}>
@@ -33,7 +33,7 @@ const { posts } = Astro.props
   </h2>
   <div class="grid grid-cols-2 gap-5 w700:grid-cols-1">
     {
-      posts.map((project) => (
+      projects.map((project) => (
         <Card
           url={`/${project.slug}`}
           heroImage={project.data.heroImage}
