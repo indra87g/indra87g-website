@@ -4,12 +4,12 @@ import { getCollection } from 'astro:content'
 import Layout from '../../layouts/BlogPost.astro'
 
 export async function getStaticPaths() {
-  const projectEntries = await getCollection('project')
+    const projectEntries = await getCollection('project')
 
-  return projectEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }))
+    return projectEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }))
 }
 
 const { entry } = Astro.props

@@ -8,28 +8,28 @@ import Base from '../../layouts/Base.astro'
 import Card from '../../components/ProjectCard.astro'
 
 export async function getStaticPaths({
-  paginate,
+    paginate,
 }: {
-  paginate: PaginateFunction
+    paginate: PaginateFunction
 }) {
-  const blogs: CollectionEntry<'project'>[] = await getCollection('project')
-  blogs.sort((a, b) => {
-    const dateA = new Date(a.data.publishDate).valueOf()
-    const dateB = new Date(b.data.publishDate).valueOf()
-    return dateB - dateA
-  })
-  return paginate(blogs, { pageSize: 10 })
+    const blogs: CollectionEntry<'project'>[] = await getCollection('project')
+    blogs.sort((a, b) => {
+        const dateA = new Date(a.data.publishDate).valueOf()
+        const dateB = new Date(b.data.publishDate).valueOf()
+        return dateB - dateA
+    })
+    return paginate(blogs, { pageSize: 10 })
 }
 
 const allProjects = await getCollection('project')
 const sortedProjects = allProjects.sort(
-  (a, b) =>
-    new Date(b.data.publishDate).valueOf() -
-    new Date(a.data.publishDate).valueOf(),
+    (a, b) =>
+        new Date(b.data.publishDate).valueOf() -
+        new Date(a.data.publishDate).valueOf(),
 )
 ---
 
-<Base meta={{ title: config.title }}>
+<Base meta={{ title: `${config.title} - Project` }}>
   <div class="grid grid-cols-2 gap-5 w700:grid-cols-1">
     {
       sortedProjects.map((project) => (

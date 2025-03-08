@@ -6,28 +6,28 @@ import Base from '../../../layouts/Base.astro'
 import Card from '../../../components/ProjectCard.astro'
 
 export async function getStaticPaths() {
-  const allProjects = await getCollection('project')
+    const allProjects = await getCollection('project')
 
-  const uniqueTags = [
-    ...new Set(allProjects.map((project) => project.data.tags).flat()),
-  ]
+    const uniqueTags = [
+        ...new Set(allProjects.flatMap((project) => project.data.tags)),
+    ]
 
-  return uniqueTags.map((tag: string) => {
-    const filteredProjects = allProjects.filter((project) =>
-      project.data.tags.includes(tag),
-    )
-    return {
-      params: { tag },
-      props: { projects: filteredProjects },
-    }
-  })
+    return uniqueTags.map((tag: string) => {
+        const filteredProjects = allProjects.filter((project) =>
+            project.data.tags.includes(tag),
+        )
+        return {
+            params: { tag },
+            props: { projects: filteredProjects },
+        }
+    })
 }
 
 const { tag } = Astro.params
 const { projects } = Astro.props
 ---
 
-<Base meta={{ title: 'Posts tagged with ' + tag }}>
+<Base meta={{ title: 'Projects tagged with ' + tag }}>
   <h2 class="mb-10 text-2xl font-heading tracking-wide w500:text-lg">
     Posts tagged with <span class="text-text dark:text-darkText">#{tag}</span>
   </h2>

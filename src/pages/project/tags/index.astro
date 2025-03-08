@@ -1,15 +1,14 @@
 ---
+import config from '../../../config'
 import { getCollection } from 'astro:content'
 
 import Base from '../../../layouts/Base.astro'
 
 const allProjects = await getCollection('project')
-const tags = [
-  ...new Set(allProjects.map((project) => project.data.tags).flat()),
-]
+const tags = [...new Set(allProjects.flatMap((project) => project.data.tags))]
 ---
 
-<Base meta={{ title: 'Tags' }}>
+<Base meta={{ title: `${config.title} - Project Tags` }}>
   <h2 class="text-2xl font-heading tracking-wide w500:text-lg">Tags</h2>
 
   <div class="mt-4 flex flex-wrap gap-4">

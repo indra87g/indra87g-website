@@ -1,9 +1,9 @@
 ---
 const today = new Date()
 const commitMessage =
-  import.meta.env.VERCEL_GIT_COMMIT_MESSAGE || 'No commit info'
+    import.meta.env.VERCEL_GIT_COMMIT_MESSAGE || 'No commit info'
 const commitSha =
-  import.meta.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'unknown'
+    import.meta.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'unknown'
 ---
 
 <footer

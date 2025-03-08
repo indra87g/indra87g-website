@@ -1,17 +1,17 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "astro/tsconfigs/strict",
-  "display": "Default",
-  "compilerOptions": {
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
-  "exclude": ["dist", "docs", "node_modules"]
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "astro/tsconfigs/strict",
+    "display": "Default",
+    "compilerOptions": {
+        "allowJs": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "react",
+        "noEmit": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+    "exclude": ["dist", "docs", "node_modules"]
 }

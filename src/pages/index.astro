@@ -1,4 +1,5 @@
 ---
+import config from '../config'
 import Base from '../layouts/Base.astro'
 import { Image } from 'astro:assets'
 import SocialLinks from '../components/SocialLinks.astro'
@@ -7,7 +8,7 @@ import BrutalTag from '../components/BrutalTag.astro'
 import { PROFILE } from '../constants/profile'
 ---
 
-<Base meta={{ title: 'indra87g - Homepage' }}>
+<Base meta={{ title: `${config.title} - Homepage` }}>
   <div
     class="mt-5 flex flex-wrap items-center justify-between gap-8 pb-12 text-text dark:text-darkText"
   >

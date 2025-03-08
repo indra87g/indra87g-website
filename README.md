@@ -1,55 +1,30 @@
-<img src="public/preview.png" />
+# indra87g.vercel.app
 
-# Blog
+![Website Up](https://img.shields.io/website-up-down-brightgreen-red/https/indra87g.vercel.app.svg)
 
-Blog is a neobrutalism-styled astro tailwind template for blogs.
+Codebase for ([indra87g.vercel.app](https://indra87g.vercel.app))
 
-## Get started
+![Homepage](./public/screenshot.png)
 
-[Create a new repo](https://github.com/neobrutalism-templates/blog/generate) from this template.
+## Tech Stacks
+- Astro
+- Tailwind CSS
 
-### Installation
+## Planning
+- Showcase my frontend skills in `/showcase`
+- Add Giscus comment to Project/Blog
+- Use Umami as analytics
+- Move website contents to CMS
+- Buy domain `indra87g.space`
 
-This template uses `pnpm` package manager so make sure you have it installed.
+## Analytics
 
-To install all dependencies run:
+https://cloud.umami.is/share/y0q4gqqLsYzRSow1/indra87g.vercel.app
 
-```bash
-pnpm i
-```
+## Stats
 
-To run the app locally:
+![Stats](https://repobeats.axiom.co/api/embed/97b6127211abe8cd0ae17d30ccd79865a99d168a.svg "Repobeats analytics image")
 
-```bash
-pnpm run dev
-```
-
-### Config
-
-- Go to `astro.config.mjs` and change site
-- Go to `src/config.ts` and configure data for meta tags
-- You can customize code blocks config by changing `expressiveCode` object in astro config. Visit [expressive-code docs](https://expressive-code.com/reference/configuration) for more info.
-- To change code blocks theme, you'll have to update themes both in `themes` array and in `config.ts`
-
-### How to add new post
-
-Create a new md/mdx file inside src/content/posts, and make sure it's in this format:
-
-```
----
-title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Dec 22 2023'
-tags: ['astro', 'blogging', 'learning']
----
-
-Your post
-```
-
-### Styling
-
-To change the styling visit [styling docs](https://neobrutalism-components.vercel.app/docs/styling), and copy the desired styling to tailwind config like it's shown in the styling docs.
-
-Make sure to not delete `fontFamily`, `screens`, and `typography` from tailwind config.
-
-After you change the font weight you'll have to update font imports inside `src/layouts/Base.astro`.
+## Credits
+- Project template from [neobrutalism-templates/blog](https://github.com/neobrutalism-templates/blog)
+- Reference from [mazipan/mazipan.space](https://github.com/mazipan/mazipan.space)
