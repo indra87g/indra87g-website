@@ -13,7 +13,6 @@ Codebase for ([indra87g.vercel.app](https://indra87g.vercel.app))
 ## Planning
 - Showcase my frontend skills in `/showcase`
 - Add Giscus comment to Project/Blog
-- Use Umami as analytics
 - Move website contents to CMS
 - Buy domain `indra87g.space`
 

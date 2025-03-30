@@ -1,4 +1,4 @@
-import config from '../config'
+import config from '@/config'
 
 export default function ThemeSwitcher() {
     const handleToggleClick = () => {
@@ -27,6 +27,7 @@ export default function ThemeSwitcher() {
                 className="relative cursor-pointer"
                 htmlFor="themeswitcherxd"
             >
+                {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
                 <svg
                     className="hidden dark:block"
                     width="16"

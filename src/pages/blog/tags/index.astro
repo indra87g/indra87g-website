@@ -1,8 +1,8 @@
 ---
-import config from '../../../config'
+import config from '@/config'
 import { getCollection } from 'astro:content'
 
-import Base from '../../../layouts/Base.astro'
+import Base from '@/layouts/Base.astro'
 
 const allPosts = await getCollection('blog')
 const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))]

@@ -1,16 +1,8 @@
 import { z } from 'astro:content'
 
-import type { SchemaContext } from 'astro:content'
+import { removeDuplicatesAndToLowerCase } from '@/lib/helper'
 
-/** lowercase tags for routes */
-const removeDuplicatesAndToLowerCase = (items: string[]) => {
-    const lowercaseItems = items.map((str) => str.toLowerCase())
-    const distinctItems = new Set(lowercaseItems)
-    return Array.from(distinctItems)
-}
-
-// schema and collection are separate
-export const blogSchema = ({ image }: SchemaContext) =>
+export const blogSchema = () =>
     z.object({
         publishDate: z.coerce.date(),
         updatedDate: z.coerce.date().optional(),

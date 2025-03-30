@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
-import { formatDate } from '../../../lib/date'
+import { formatDate } from '@/lib/helper'
 
-import Base from '../../../layouts/Base.astro'
-import Card from '../../../components/ProjectCard.astro'
+import Base from '@/layouts/Base.astro'
+import Card from '@/components/ProjectCard.astro'
 
 export async function getStaticPaths() {
     const allProjects = await getCollection('project')

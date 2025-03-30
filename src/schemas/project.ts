@@ -1,16 +1,8 @@
 import { z } from 'astro:content'
 
-//import { DEFAULTS_PROJECT } from '../constants/collections';
+import { removeDuplicatesAndToLowerCase } from '@/lib/helper'
 
-import type { SchemaContext } from 'astro:content'
-
-const removeDuplicatesAndToLowerCase = (items: string[]) => {
-    const lowercaseItems = items.map((str) => str.toLowerCase())
-    const distinctItems = new Set(lowercaseItems)
-    return Array.from(distinctItems)
-}
-
-export const projectSchema = ({ image }: SchemaContext) =>
+export const projectSchema = () =>
     z.object({
         title: z.string(),
         description: z.string(),

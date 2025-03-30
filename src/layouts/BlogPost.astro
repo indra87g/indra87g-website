@@ -1,10 +1,10 @@
 ---
-import { formatDate } from '../lib/date'
+import { formatDate } from '@/lib/helper'
 
-import '../global.css'
+import '@/global.css'
 
-import Base from './Base.astro'
-import InfoHeader from '../components/InfoHeader.astro'
+import Base from '@/layouts/Base.astro'
+import InfoHeader from '@/components/InfoHeader.astro'
 
 const { frontmatter } = Astro.props
 ---
@@ -20,6 +20,8 @@ const { frontmatter } = Astro.props
       tags={frontmatter.tags}
     />
     <slot />
+    </br>
+    <p>Jika anda butuh bantuan, jangan ragu untuk menghubungi saya melalui whatsapp 089530428615. Ciao!</p>
   </div>
 </Base>
 
