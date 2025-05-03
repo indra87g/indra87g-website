@@ -2,7 +2,7 @@
 
 ![Website Up](https://img.shields.io/website-up-down-brightgreen-red/https/indra87g.vercel.app.svg)
 
-Codebase for ([indra87g.vercel.app](https://indra87g.vercel.app))
+Codebase for ([indra87g.pages.dev](https://indra87g.pages.dev))
 
 ![Homepage](./public/screenshot.png)
 

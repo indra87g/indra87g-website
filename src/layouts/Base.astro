@@ -1,5 +1,4 @@
 ---
-import Analytics from '@vercel/analytics/astro'
 import config from '@/config'
 
 import BaseHead from '@/components/BaseHead.astro'
@@ -14,11 +13,10 @@ const {
 } = Astro.props
 ---
 
-<html lang={config.lang}>
+<html class="scroll-smooth" lang={config.lang}>
   <head>
-    <Analytics />
     <BaseHead title={title} description={description} />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="cfdc498a-5723-48b5-874b-a126717a68bb"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="cfdc498a-5723-48b5-874b-a126717a68bb" is:inline></script>
   </head>
   <body
     class="bg-bg px-5 font-base text-text scrollbar scrollbar-thumb-black dark:bg-darkBg dark:text-darkText dark:scrollbar-thumb-white"
@@ -29,7 +27,7 @@ const {
     >
       <div class="flex justify-center">
         <main
-          class="w-full rounded-base border-2 border-border p-6 pt-10 shadow-light dark:border-darkBorder dark:shadow-dark"
+          class="w-full rounded-base border-2 border-border p-6 pt-10 shadow-light dark:border-darkBorder dark:shadow-dark transition-colors duration-300"
         >
           <slot />
         </main>
