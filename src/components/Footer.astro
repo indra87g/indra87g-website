@@ -7,11 +7,11 @@ const commitSha =
 ---
 
 <footer
-  class="flex w-full flex-col items-center justify-between rounded-base border-2 border-border bg-white px-5 py-10 text-yellow-600 dark:border-darkBorder dark:bg-secondaryBlack dark:text-yellow-400 md:flex-row md:px-24 2xl:p-32"
+  class="flex w-full flex-col items-center justify-between gap-12 rounded-base border-2 border-border bg-white p-8 text-text dark:border-darkBorder dark:bg-secondaryBlack dark:text-darkText md:flex-row md:items-start md:p-12"
 >
   <!-- Brand / Logo -->
-  <div class="flex flex-col items-center md:items-start">
-    <h1 class="text-center text-2xl font-bold md:text-left">INDRA87G</h1>
+  <div class="flex flex-col items-center text-center md:items-start md:text-left">
+    <h1 class="text-2xl font-bold text-main">INDRA87G</h1>
     <p class="mt-2 text-sm">© {today.getFullYear()}</p>
     <p class="mt-1 text-xs">
       v1.0.0, deployed at {today.toISOString().split('T')[0]}
@@ -19,24 +19,25 @@ const commitSha =
     <p class="mt-1 text-xs">
       Latest commit: <a
         href=`https://github.com/indra87g/indra87g.vercel.app/commit/${commitSha}`
+        class="hover:underline text-main"
         >{commitMessage}</a
       >
     </p>
   </div>
 
   <!-- Navigation Links -->
-  <div class="grid grid-cols-2 gap-4 text-center md:grid-cols-3 md:gap-8">
+  <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-center md:grid-cols-3 md:gap-x-16 md:text-left">
     <div>
-      <h3 class="font-semibold">General</h3>
-      <ul class="space-y-2">
+      <h3 class="font-semibold text-main">General</h3>
+      <ul class="mt-2 space-y-2">
         <li><a href="/blog" class="hover:underline">Blog</a></li>
         <li><a href="/explore" class="hover:underline">Explore</a></li>
         <li><a href="/projects" class="hover:underline">Projects</a></li>
       </ul>
     </div>
     <div>
-      <h3 class="font-semibold">Navigations</h3>
-      <ul class="space-y-2">
+      <h3 class="font-semibold text-main">Navigations</h3>
+      <ul class="mt-2 space-y-2">
         <li><a href="#" class="hover:underline">Talks</a></li>
         <li><a href="#" class="hover:underline">Credits</a></li>
         <li><a href="#" class="hover:underline">Support</a></li>
@@ -44,8 +45,8 @@ const commitSha =
       </ul>
     </div>
     <div>
-      <h3 class="font-semibold">Ext. Resources</h3>
-      <ul class="space-y-2">
+      <h3 class="font-semibold text-main">Ext. Resources</h3>
+      <ul class="mt-2 space-y-2">
         <li><a href="#" class="hover:underline">Bookmarks</a></li>
         <li><a href="#" class="hover:underline">Analytics</a></li>
         <li><a href="#" class="hover:underline">RSS</a></li>

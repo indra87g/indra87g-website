@@ -10,33 +10,33 @@ import { PROFILE } from '../constants/profile'
 
 <Base meta={{ title: `${config.title} - Homepage` }}>
   <div
-    class="mt-5 flex flex-wrap items-center justify-between gap-8 pb-12 text-text dark:text-darkText"
+    class="mt-5 flex flex-wrap items-center justify-center gap-8 pb-12 text-text dark:text-darkText md:justify-between"
   >
     <div class="max-w-md">
       <BrutalTag emoji="🤣" text="Fullstuck Developer" />
-      <p class="mt-4 text-lg">
+      <p class="mt-4 text-lg leading-relaxed">
         Saya adalah seorang Fullstuck Developer yang sangat cupu. ngoding Python aja
         kadang ngeblank, plus suka FOMO sama tech stack terbaru. Ajarin dong puh, sepuh🙏.
       </p>
     </div>
 
     <div class="flex flex-col items-center text-center">
-      <div class="relative h-[250px] w-[250px]">
+      <div class="group relative h-[200px] w-[200px] md:h-[250px] md:w-[250px]">
         <Image
           height={250}
           width={250}
           src="/profile.jpg"
           alt="indra87g Avatar"
-          class="relative z-10 rounded-full border-[6px] border-yellow-500 bg-yellow-500"
+          class="relative z-10 rounded-full border-[6px] border-main bg-main"
         />
         <div
-          class="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-gradient-to-br from-pink-400 to-purple-600"
+          class="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-gradient-to-br from-pink-400 to-purple-600 transition-transform group-hover:scale-110"
         >
         </div>
       </div>
 
       <div class="mt-4">
-        <div class="text-4xl font-bold text-yellow-500">{PROFILE.NAME}</div>
+        <div class="text-4xl font-bold text-main">{PROFILE.NAME}</div>
         <div class="text-lg">Call me "Indra"</div>
       </div>
 
