@@ -1,8 +1,8 @@
-# indra87g.vercel.app
+# indra87g
 
-![Website Up](https://img.shields.io/website-up-down-brightgreen-red/https/indra87g.vercel.app.svg)
+![Website Up](https://img.shields.io/website-up-down-brightgreen-red/https/indra87g.is-a.dev.svg)
 
-Codebase for ([indra87g.pages.dev](https://indra87g.pages.dev))
+Codebase for ([indra87g.is-a.dev](https://indra87g.is-a.dev))
 
 ![Homepage](./public/screenshot.png)
 
