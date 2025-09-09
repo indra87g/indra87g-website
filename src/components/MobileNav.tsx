@@ -36,7 +36,7 @@ export default function MobileNav() {
             </button>
 
             <div
-                className={`absolute left-0 top-[80px] w-full bg-white dark:bg-secondaryBlack transition-all duration-300 ease-in-out ${
+                className={`absolute left-0 top-[80px] z-40 w-full bg-white dark:bg-secondaryBlack transition-all duration-300 ease-in-out ${
                     isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
             >
