@@ -6,6 +6,26 @@ import SocialLinks from '../components/SocialLinks.astro'
 import BrutalTag from '../components/BrutalTag.astro'
 
 import { PROFILE } from '../constants/profile'
+import PostCard from '@/components/PostCard.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+
+const posts = (await Astro.glob('../content/blog/*.mdx'))
+  .filter((post) => !post.frontmatter.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishDate).valueOf() -
+      new Date(a.frontmatter.publishDate).valueOf()
+  )
+  .slice(0, 3)
+
+const projects = (await Astro.glob('../content/project/*.mdx'))
+  .filter((project) => !project.frontmatter.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishDate).valueOf() -
+      new Date(a.frontmatter.publishDate).valueOf()
+  )
+  .slice(0, 3)
 ---
 
 <Base meta={{ title: `${config.title} - Homepage` }}>
@@ -44,5 +64,41 @@ import { PROFILE } from '../constants/profile'
         <SocialLinks />
       </div>
     </div
+  </div>
+
+  <div class="mt-16">
+    <h2 class="text-3xl font-bold text-center">Recent Posts</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+      {
+        posts.map((post) => (
+          <PostCard
+            url={post.url}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            publishDate={post.frontmatter.publishDate.toString().slice(0, 10)}
+            heroImage={post.frontmatter.heroImage}
+            heroAlt={post.frontmatter.heroAlt}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="mt-16">
+    <h2 class="text-3xl font-bold text-center">Recent Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            url={project.url}
+            title={project.frontmatter.title}
+            description={project.frontmatter.description}
+            publishDate={project.frontmatter.publishDate.toString().slice(0, 10)}
+            heroImage={project.frontmatter.heroImage}
+            heroAlt={project.frontmatter.heroAlt}
+          />
+        ))
+      }
+    </div>
   </div>
 </Base>

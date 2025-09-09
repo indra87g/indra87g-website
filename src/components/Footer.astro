@@ -1,9 +1,16 @@
 ---
+import { execSync } from 'child_process'
+
 const today = new Date()
-const commitMessage =
-    import.meta.env.VERCEL_GIT_COMMIT_MESSAGE || 'No commit info'
-const commitSha =
-    import.meta.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || 'unknown'
+let commitMessage = 'No commit info'
+let commitSha = 'unknown'
+
+try {
+  commitMessage = execSync('git log -1 --pretty=%B').toString().trim()
+  commitSha = execSync('git rev-parse --short HEAD').toString().trim()
+} catch (e) {
+  console.error('Error getting git info:', e)
+}
 ---
 
 <footer
