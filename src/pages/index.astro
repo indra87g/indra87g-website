@@ -10,22 +10,22 @@ import PostCard from '@/components/PostCard.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
 
 const posts = (await Astro.glob('../content/blog/*.mdx'))
-  .filter((post) => !post.frontmatter.draft)
-  .sort(
-    (a, b) =>
-      new Date(b.frontmatter.publishDate).valueOf() -
-      new Date(a.frontmatter.publishDate).valueOf()
-  )
-  .slice(0, 3)
+    .filter((post) => !post.frontmatter.draft)
+    .sort(
+        (a, b) =>
+            new Date(b.frontmatter.publishDate).valueOf() -
+            new Date(a.frontmatter.publishDate).valueOf(),
+    )
+    .slice(0, 3)
 
 const projects = (await Astro.glob('../content/project/*.mdx'))
-  .filter((project) => !project.frontmatter.draft)
-  .sort(
-    (a, b) =>
-      new Date(b.frontmatter.publishDate).valueOf() -
-      new Date(a.frontmatter.publishDate).valueOf()
-  )
-  .slice(0, 3)
+    .filter((project) => !project.frontmatter.draft)
+    .sort(
+        (a, b) =>
+            new Date(b.frontmatter.publishDate).valueOf() -
+            new Date(a.frontmatter.publishDate).valueOf(),
+    )
+    .slice(0, 3)
 ---
 
 <Base meta={{ title: `${config.title} - Homepage` }}>

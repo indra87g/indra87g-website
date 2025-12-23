@@ -1,3 +1,7 @@
+:root {
+    transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+}
+
 mark {
     @apply bg-main;
 }
