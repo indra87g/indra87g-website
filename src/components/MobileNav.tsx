@@ -1,29 +1,52 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 const MenuIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+    >
+        <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+        />
     </svg>
-);
+)
 
 const CloseIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth={2}
+    >
+        <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+        />
     </svg>
-);
+)
 
 export default function MobileNav() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) { // md breakpoint in Tailwind
-                setIsOpen(false);
+            if (window.innerWidth >= 768) {
+                // md breakpoint in Tailwind
+                setIsOpen(false)
             }
-        };
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     return (
         <div className="md:hidden">
@@ -41,11 +64,17 @@ export default function MobileNav() {
                 }`}
             >
                 <div className="flex flex-col items-center gap-4 border-y-2 border-border dark:border-darkBorder py-4">
-                    <a href="/blog" className="hover:underline">Blog</a>
-                    <a href="/project" className="hover:underline">Project</a>
-                    <a href="/cv" className="hover:underline">CV</a>
+                    <a href="/blog" className="hover:underline">
+                        Blog
+                    </a>
+                    <a href="/project" className="hover:underline">
+                        Project
+                    </a>
+                    <a href="/cv" className="hover:underline">
+                        CV
+                    </a>
                 </div>
             </div>
         </div>
-    );
+    )
 }
