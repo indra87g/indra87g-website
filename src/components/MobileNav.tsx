@@ -9,6 +9,7 @@ const MenuIcon = () => (
         stroke="currentColor"
         strokeWidth={2}
     >
+        <title>Open menu</title>
         <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -26,6 +27,7 @@ const CloseIcon = () => (
         stroke="currentColor"
         strokeWidth={2}
     >
+        <title>Close menu</title>
         <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -51,9 +53,11 @@ export default function MobileNav() {
     return (
         <div className="md:hidden">
             <button
+                type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 className="z-50"
                 aria-label="Toggle menu"
+                aria-expanded={isOpen}
             >
                 {isOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
