@@ -6,10 +6,14 @@ let commitMessage = 'No commit info'
 let commitSha = 'unknown'
 
 try {
-    commitMessage = execSync('git log -1 --pretty=%B').toString().trim()
-    commitSha = execSync('git rev-parse --short HEAD').toString().trim()
+  commitMessage = execSync(
+    'git log -1 --pretty=%B --invert-grep --grep="^Apply patch"',
+  )
+    .toString()
+    .trim()
+  commitSha = execSync('git rev-parse --short HEAD').toString().trim()
 } catch (e) {
-    console.error('Error getting git info:', e)
+  console.error('Error getting git info:', e)
 }
 ---
 
@@ -17,23 +21,20 @@ try {
   class="flex w-full flex-col items-center justify-between gap-12 rounded-base border-2 border-border bg-white p-8 text-text dark:border-darkBorder dark:bg-secondaryBlack dark:text-darkText md:flex-row md:items-start md:p-12"
 >
   <!-- Brand / Logo -->
-  <div class="flex flex-col items-center text-center md:items-start md:text-left">
+  <div
+    class="flex flex-col items-center text-center md:items-start md:text-left"
+  >
     <h1 class="text-2xl font-bold text-main">INDRA87G</h1>
     <p class="mt-2 text-sm">© {today.getFullYear()}</p>
     <p class="mt-1 text-xs">
       v1.0.0, deployed at {today.toISOString().split('T')[0]}
     </p>
-    <p class="mt-1 text-xs">
-      Latest commit: <a
-        href=`https://github.com/indra87g/indra87g.vercel.app/commit/${commitSha}`
-        class="hover:underline text-main"
-        >{commitMessage}</a
-      >
-    </p>
   </div>
 
   <!-- Navigation Links -->
-  <div class="grid grid-cols-2 gap-x-8 gap-y-4 text-center md:grid-cols-3 md:gap-x-16 md:text-left">
+  <div
+    class="grid grid-cols-2 gap-x-8 gap-y-4 text-center md:grid-cols-3 md:gap-x-16 md:text-left"
+  >
     <div>
       <h3 class="font-semibold text-main">General</h3>
       <ul class="mt-2 space-y-2">
@@ -57,7 +58,58 @@ try {
         <li><a href="#" class="hover:underline">Bookmarks</a></li>
         <li><a href="#" class="hover:underline">Analytics</a></li>
         <li><a href="#" class="hover:underline">RSS</a></li>
+        <li>
+          <button id="showCommitDialogBtn" class="hover:underline"
+            >Latest commit</button
+          >
+        </li>
       </ul>
     </div>
   </div>
 </footer>
+
+<dialog
+  id="commitDialog"
+  class="w-11/12 rounded-base border-2 border-border bg-white p-8 text-text dark:border-darkBorder dark:bg-secondaryBlack dark:text-darkText md:w-1/2"
+>
+  <div class="flex flex-col">
+    <div class="mb-4 flex items-center justify-between">
+      <h2 class="text-xl font-bold text-main">Latest Commit</h2>
+      <button id="closeCommitDialogBtn" class="text-2xl font-bold"
+        >&times;</button
+      >
+    </div>
+    <pre
+      class="whitespace-pre-wrap rounded-base bg-stone-100 p-4 font-mono text-sm dark:bg-stone-800"
+      ><a
+        href=`https://github.com/indra87g/indra87g.vercel.app/commit/${commitSha}`
+        class="hover:underline text-main"
+        target="_blank"
+        rel="noopener noreferrer"
+      >{commitMessage}</a></pre
+    >
+  </div>
+</dialog>
+
+<script>
+  const commitDialog = document.getElementById(
+    'commitDialog',
+  ) as HTMLDialogElement
+  const showCommitDialogBtn = document.getElementById('showCommitDialogBtn')
+  const closeCommitDialogBtn = document.getElementById('closeCommitDialogBtn')
+
+  showCommitDialogBtn?.addEventListener('click', () => {
+    commitDialog?.showModal()
+  })
+
+  closeCommitDialogBtn?.addEventListener('click', () => {
+    commitDialog?.close()
+  })
+
+  // Close dialog on backdrop click
+  commitDialog?.addEventListener('click', event => {
+    if (event.target === commitDialog) {
+      commitDialog.close()
+    }
+  })
+</script>
