@@ -36,7 +36,10 @@ export default function ThemeSwitcher() {
             document.documentElement.classList.remove('dark')
         }
 
-        document.documentElement.setAttribute('data-theme', config.themes[newTheme])
+        document.documentElement.setAttribute(
+            'data-theme',
+            config.themes[newTheme],
+        )
     }
 
     return (
