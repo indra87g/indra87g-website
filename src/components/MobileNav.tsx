@@ -50,12 +50,23 @@ export default function MobileNav() {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+        return () => {
+            document.body.style.overflow = 'auto'
+        }
+    }, [isOpen])
+
     return (
         <div className="md:hidden">
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="z-50"
+                className="z-50 text-text dark:text-main"
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
             >
@@ -63,11 +74,11 @@ export default function MobileNav() {
             </button>
 
             <div
-                className={`absolute left-0 top-[80px] z-40 w-full bg-white dark:bg-secondaryBlack transition-all duration-300 ease-in-out ${
+                className={`absolute right-4 top-[90px] z-40 w-48 rounded-base border-2 border-border bg-bg text-text transition-all duration-300 ease-in-out dark:border-main dark:bg-darkBg dark:text-main ${
                     isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
             >
-                <div className="flex flex-col items-center gap-4 border-y-2 border-border dark:border-darkBorder py-4">
+                <div className="flex flex-col items-start gap-4 p-4">
                     <a href="/blog" className="hover:underline">
                         Blog
                     </a>

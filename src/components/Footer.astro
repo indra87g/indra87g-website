@@ -6,14 +6,14 @@ let commitMessage = 'No commit info'
 let commitSha = 'unknown'
 
 try {
-  commitMessage = execSync(
-    'git log -1 --pretty=%B --invert-grep --grep="^Apply patch"',
-  )
-    .toString()
-    .trim()
-  commitSha = execSync('git rev-parse --short HEAD').toString().trim()
+    commitMessage = execSync(
+        'git log -1 --pretty=%B --invert-grep --grep="^Apply patch"',
+    )
+        .toString()
+        .trim()
+    commitSha = execSync('git rev-parse --short HEAD').toString().trim()
 } catch (e) {
-  console.error('Error getting git info:', e)
+    console.error('Error getting git info:', e)
 }
 ---
 
