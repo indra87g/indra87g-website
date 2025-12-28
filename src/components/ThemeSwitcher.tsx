@@ -43,23 +43,24 @@ export default function ThemeSwitcher() {
     }
 
     return (
-        <button
-            type="button"
-            onClick={handleToggleClick}
-            aria-label={
-                theme === 'dark'
-                    ? 'Switch to light mode'
-                    : 'Switch to dark mode'
-            }
-            className="flex items-center justify-center"
-        >
-            <svg
-                className="hidden dark:block"
-                width="16"
-                height="16"
-                xmlns="http://www.w3.org/2000/svg"
+        <div className="relative group">
+            <button
+                type="button"
+                onClick={handleToggleClick}
+                aria-label={
+                    theme === 'dark'
+                        ? 'Switch to light mode'
+                        : 'Switch to dark mode'
+                }
+                aria-describedby="theme-switcher-tooltip"
+                className="flex items-center justify-center"
             >
-                <title>Switch to light mode</title>
+                <svg
+                    className="hidden dark:block"
+                    width="16"
+                    height="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
                 <path
                     className="fill-darkText"
                     d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z"
@@ -75,7 +76,6 @@ export default function ThemeSwitcher() {
                 height="16"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <title>Switch to dark mode</title>
                 <path
                     className="fill-text"
                     d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z"
@@ -86,5 +86,11 @@ export default function ThemeSwitcher() {
                 />
             </svg>
         </button>
+         <span
+            id="theme-switcher-tooltip"
+            className="absolute top-8 left-1/2 -translate-x-1/2 scale-0 transition-all rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100 group-focus-within:scale-100"
+            >Switch to {theme === 'dark' ? 'light' : 'dark'} mode</span
+        >
+    </div>
     )
 }
