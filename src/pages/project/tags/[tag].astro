@@ -8,19 +8,21 @@ import Card from '@/components/ProjectCard.astro'
 export async function getStaticPaths() {
     const allProjects = await getCollection('project')
 
-    const uniqueTags = [
-        ...new Set(allProjects.flatMap((project) => project.data.tags)),
-    ]
+    const tagsMap = new Map<string, typeof allProjects>()
 
-    return uniqueTags.map((tag: string) => {
-        const filteredProjects = allProjects.filter((project) =>
-            project.data.tags.includes(tag),
-        )
-        return {
-            params: { tag },
-            props: { projects: filteredProjects },
+    for (const project of allProjects) {
+        for (const tag of project.data.tags) {
+            if (!tagsMap.has(tag)) {
+                tagsMap.set(tag, [])
+            }
+            tagsMap.get(tag)?.push(project)
         }
-    })
+    }
+
+    return Array.from(tagsMap.entries()).map(([tag, projects]) => ({
+        params: { tag },
+        props: { projects },
+    }))
 }
 
 const { tag } = Astro.params
