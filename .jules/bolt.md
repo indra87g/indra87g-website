@@ -1,0 +1,3 @@
+## 2023-10-27 - [Astro getStaticPaths Pagination Anti-pattern]
+**Learning:** In Astro's `[...page].astro` dynamic routes, redundantly fetching and sorting collections (`getCollection`) in the component script is a significant performance bottleneck and memory waste. The `getStaticPaths` function already fetches, sorts, and paginates the data, exposing it via the `page` prop (`Astro.props.page.data`).
+**Action:** When working with Astro paginated routes, always check if `getCollection` is being called in the render scope. Refactor to use `const { page } = Astro.props` and map over `page.data` instead to avoid O(n log n) overhead on every render.

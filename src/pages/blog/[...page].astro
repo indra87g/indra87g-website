@@ -21,18 +21,16 @@ export async function getStaticPaths({
     return paginate(blogs, { pageSize: 10 })
 }
 
-const allPosts = await getCollection('blog')
-const sortedPosts = allPosts.sort(
-    (a, b) =>
-        new Date(b.data.publishDate).valueOf() -
-        new Date(a.data.publishDate).valueOf(),
-)
+// ⚡ Bolt: Removed redundant `getCollection('blog')` and sorting here.
+// Astro's getStaticPaths already paginates the sorted data and provides it via the `page` prop.
+// Re-fetching and sorting in the component rendering phase causes unnecessary processing.
+const { page } = Astro.props
 ---
 
 <Base meta={{ title: `${config.title} - Blog` }}>
   <div class="grid grid-cols-2 gap-5 w700:grid-cols-1">
     {
-      sortedPosts.map((post) => (
+      page.data.map((post) => (
         <Card
           url={post.slug}
           heroImage={post.data.heroImage}
