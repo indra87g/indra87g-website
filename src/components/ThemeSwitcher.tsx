@@ -53,7 +53,7 @@ export default function ThemeSwitcher() {
                         : 'Switch to dark mode'
                 }
                 aria-describedby="theme-switcher-tooltip"
-                className="flex items-center justify-center"
+                className="flex items-center justify-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
             >
                 <svg
                     className="hidden dark:block"
