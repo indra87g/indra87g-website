@@ -59,9 +59,12 @@ try {
         <li><a href="#" class="hover:underline">Analytics</a></li>
         <li><a href="#" class="hover:underline">RSS</a></li>
         <li>
-          <button id="showCommitDialogBtn" class="hover:underline"
-            >Latest commit</button
+          <button
+            id="showCommitDialogBtn"
+            class="hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
           >
+            Latest commit
+          </button>
         </li>
       </ul>
     </div>
@@ -75,9 +78,13 @@ try {
   <div class="flex flex-col">
     <div class="mb-4 flex items-center justify-between">
       <h2 class="text-xl font-bold text-main">Latest Commit</h2>
-      <button id="closeCommitDialogBtn" class="text-2xl font-bold"
-        >&times;</button
+      <button
+        id="closeCommitDialogBtn"
+        class="text-2xl font-bold rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
+        aria-label="Close dialog"
       >
+        &times;
+      </button>
     </div>
     <pre
       class="whitespace-pre-wrap rounded-base bg-stone-100 p-4 font-mono text-sm dark:bg-stone-800"
