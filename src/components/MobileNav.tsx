@@ -8,8 +8,8 @@ const MenuIcon = () => (
         viewBox="0 0 24 24"
         stroke="currentColor"
         strokeWidth={2}
+        aria-hidden="true"
     >
-        <title>Open menu</title>
         <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -26,8 +26,8 @@ const CloseIcon = () => (
         viewBox="0 0 24 24"
         stroke="currentColor"
         strokeWidth={2}
+        aria-hidden="true"
     >
-        <title>Close menu</title>
         <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -66,8 +66,8 @@ export default function MobileNav() {
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="z-50 text-text dark:text-main"
-                aria-label="Toggle menu"
+                className="z-50 text-text dark:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isOpen}
             >
                 {isOpen ? <CloseIcon /> : <MenuIcon />}
