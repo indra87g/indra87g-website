@@ -21,16 +21,24 @@ const {
   <body
     class="min-h-screen bg-bg px-5 font-base text-text scrollbar scrollbar-thumb-black dark:bg-darkBg dark:text-darkText dark:scrollbar-thumb-white flex flex-col"
   >
+    <a
+      href="#main-content"
+      class="absolute left-0 top-0 z-[100] m-3 -translate-y-24 rounded-base border-2 border-border bg-main p-3 text-text transition focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
+    >
+      Skip to content
+    </a>
     <Nav />
     <main
-      class="py-10 pt-[120px] w400:pt-[140px] flex-grow"
+      id="main-content"
+      tabindex="-1"
+      class="py-10 pt-[120px] w400:pt-[140px] flex-grow focus:outline-none"
     >
       <div class="flex justify-center">
-        <main
+        <div
           class="w-full rounded-base border-2 border-border p-6 pt-10 shadow-light dark:border-darkBorder dark:shadow-dark transition-colors duration-300"
         >
           <slot />
-        </main>
+        </div>
       </div>
     </main>
     <Footer />
