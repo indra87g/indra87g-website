@@ -1,3 +1,3 @@
-## 2024-05-18 - Dynamic ARIA Labels and SVG Titles
-**Learning:** For toggle buttons that control state (like a mobile menu), a static `aria-label` like "Toggle menu" is less informative than a dynamic one ("Open menu" / "Close menu"). Additionally, inner SVG `<title>` tags can cause screen readers to announce conflicting or redundant labels when the parent button already has an `aria-label`. SVGs in descriptive buttons should be explicitly hidden with `aria-hidden="true"`.
-**Action:** Use state-aware `aria-label`s on interactive toggles, and use `aria-hidden="true"` to explicitly hide decorative SVGs instead of relying on `<title>` tags when the parent element provides accessibility.
+## 2024-05-20 - [Add Skip-to-Content Link]
+**Learning:** Found nested `<main>` tags within `src/layouts/Base.astro`. Replaced inner `<main>` tag with `<div>` which is critical for making `tabindex="-1"` and `focus:outline-none` on target element work cleanly.
+**Action:** Always check the element being used as the `#main-content` target to ensure it is structurally valid HTML so that focus handling and screen reader announcements behave properly.
