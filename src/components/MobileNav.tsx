@@ -36,7 +36,9 @@ const CloseIcon = () => (
     </svg>
 )
 
-export default function MobileNav() {
+export default function MobileNav({
+    currentPath = '',
+}: { currentPath?: string }) {
     const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
@@ -79,13 +81,33 @@ export default function MobileNav() {
                 }`}
             >
                 <div className="flex flex-col items-start gap-4 p-4">
-                    <a href="/blog" className="hover:underline">
+                    <a
+                        href="/blog"
+                        className={`hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/blog') ? 'text-main font-bold' : ''}`}
+                        aria-current={
+                            currentPath.startsWith('/blog') ? 'page' : undefined
+                        }
+                    >
                         Blog
                     </a>
-                    <a href="/project" className="hover:underline">
+                    <a
+                        href="/project"
+                        className={`hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/project') ? 'text-main font-bold' : ''}`}
+                        aria-current={
+                            currentPath.startsWith('/project')
+                                ? 'page'
+                                : undefined
+                        }
+                    >
                         Project
                     </a>
-                    <a href="/cv" className="hover:underline">
+                    <a
+                        href="/cv"
+                        className={`hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/cv') ? 'text-main font-bold' : ''}`}
+                        aria-current={
+                            currentPath.startsWith('/cv') ? 'page' : undefined
+                        }
+                    >
                         CV
                     </a>
                 </div>
