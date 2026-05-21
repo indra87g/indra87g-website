@@ -1,28 +1,30 @@
 ---
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import MobileNav from '@/components/MobileNav.tsx'
+
+const pathname = Astro.url.pathname
 ---
 
 <nav class="fixed left-0 top-0 z-50 w-full px-5">
   <div
     class="z-50 mt-5 flex h-[70px] w-full items-center justify-between rounded-base border-2 border-border bg-white px-5 text-text dark:border-darkBorder dark:bg-secondaryBlack dark:text-darkText"
   >
-    <a href="/">
+    <a href="/" class="rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main">
       <h2 class="text-3xl font-heading w500:text-2xl w400:text-xl text-main">INDRA87G</h2>
     </a>
 
     <!-- Desktop Menu -->
     <div class="hidden items-center text-lg md:flex">
-      <a class="mr-10 hover:text-main" href="/blog">Blog</a>
-      <a class="mr-10 hover:text-main" href="/project">Project</a>
-      <a class="mr-10 hover:text-main" href="/cv">CV</a>
+      <a class={`mr-10 hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${pathname.startsWith('/blog') ? 'text-main font-bold' : ''}`} href="/blog" aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a>
+      <a class={`mr-10 hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${pathname.startsWith('/project') ? 'text-main font-bold' : ''}`} href="/project" aria-current={pathname.startsWith('/project') ? 'page' : undefined}>Project</a>
+      <a class={`mr-10 hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${pathname.startsWith('/cv') ? 'text-main font-bold' : ''}`} href="/cv" aria-current={pathname.startsWith('/cv') ? 'page' : undefined}>CV</a>
       <ThemeSwitcher client:load />
     </div>
 
     <!-- Mobile Menu -->
     <div class="flex items-center gap-4 md:hidden">
       <ThemeSwitcher client:load />
-      <MobileNav client:load />
+      <MobileNav currentPath={pathname} client:load />
     </div>
   </div>
 </nav>
