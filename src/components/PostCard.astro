@@ -6,7 +6,7 @@ const { url, heroImage, heroAlt, title, description, draft, publishDate } =
 
 <a
   href={`/blog/${url}`}
-  class="rounded-base border-2 border-border bg-main p-4 text-text shadow-light transition-all last:mb-0 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none dark:border-darkBorder dark:shadow-dark dark:hover:shadow-none"
+  class="rounded-base border-2 border-border bg-main p-4 text-text shadow-light transition-all last:mb-0 hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none focus-visible:translate-x-boxShadowX focus-visible:translate-y-boxShadowY focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black dark:border-darkBorder dark:shadow-dark dark:hover:shadow-none dark:focus-visible:shadow-none dark:focus-visible:ring-white"
 >
   <Image
     width={1280}
@@ -26,6 +26,7 @@ const { url, heroImage, heroAlt, title, description, draft, publishDate } =
       xmlns="http://www.w3.org/2000/svg"
       class="mr-3 h-4 w-4 w500:h-3 w500:w-3"
       viewBox="-0.5 0 15 15"
+      aria-hidden="true"
     >
       <path
         class="fill-lightModeText dark:fill-darkModeText"
