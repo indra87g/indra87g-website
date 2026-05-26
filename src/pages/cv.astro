@@ -2,6 +2,7 @@
 import config from '@/config'
 import Base from '@/layouts/Base.astro'
 import TimeLine from '@/components/cv/TimeLine.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
 <Base meta={{ title: `${config.title} - CV` }}>
@@ -76,43 +77,51 @@ import TimeLine from '@/components/cv/TimeLine.astro'
   <ul class="mx-6 mb-10 grid list-disc gap-2">
     <li>
       <a
-        class="hover:text-emerald-600"
+        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
         href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/dqlab_1.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
-        FREECLASS: Data Science Fundamentals - DQLab</a
-      >
+        FREECLASS: Data Science Fundamentals - DQLab
+        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
+        <span class="sr-only">(opens in a new tab)</span>
+      </a>
     </li>
     <li>
       <a
-        class="hover:text-emerald-600"
+        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
         href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/santrikoding_1.png"
         target="_blank"
         rel="noopener noreferrer"
       >
-        FullStack Javascript Developer dengan Express dan Vue - SantriKoding</a
-      >
+        FullStack Javascript Developer dengan Express dan Vue - SantriKoding
+        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
+        <span class="sr-only">(opens in a new tab)</span>
+      </a>
     </li>
     <li>
       <a
-        class="hover:text-emerald-600"
+        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
         href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/idcamp2024_1.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Belajar Visualisasi Data - IDCamp IOH 2024</a
-      >
+        Belajar Visualisasi Data - IDCamp IOH 2024
+        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
+        <span class="sr-only">(opens in a new tab)</span>
+      </a>
     </li>
     <li>
       <a
-        class="hover:text-emerald-600"
+        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
         href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/idcamp2024_2.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Memulai Pemrograman dengan Python - IDCamp IOH 2024</a
-      >
+        Memulai Pemrograman dengan Python - IDCamp IOH 2024
+        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
+        <span class="sr-only">(opens in a new tab)</span>
+      </a>
     </li>
   </ul>
 

@@ -1,5 +1,6 @@
 ---
 import { execSync } from 'node:child_process'
+import { Icon } from 'astro-icon/components'
 
 const today = new Date()
 let commitMessage = 'No commit info'
@@ -38,26 +39,26 @@ try {
     <div>
       <h3 class="font-semibold text-main">General</h3>
       <ul class="mt-2 space-y-2">
-        <li><a href="/blog" class="hover:underline">Blog</a></li>
-        <li><a href="/explore" class="hover:underline">Explore</a></li>
-        <li><a href="/projects" class="hover:underline">Projects</a></li>
+        <li><a href="/blog" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Blog</a></li>
+        <li><a href="/explore" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Explore</a></li>
+        <li><a href="/projects" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Projects</a></li>
       </ul>
     </div>
     <div>
       <h3 class="font-semibold text-main">Navigations</h3>
       <ul class="mt-2 space-y-2">
-        <li><a href="#" class="hover:underline">Talks</a></li>
-        <li><a href="#" class="hover:underline">Credits</a></li>
-        <li><a href="#" class="hover:underline">Support</a></li>
-        <li><a href="#" class="hover:underline">Resume</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Talks</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Credits</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Support</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Resume</a></li>
       </ul>
     </div>
     <div>
       <h3 class="font-semibold text-main">Ext. Resources</h3>
       <ul class="mt-2 space-y-2">
-        <li><a href="#" class="hover:underline">Bookmarks</a></li>
-        <li><a href="#" class="hover:underline">Analytics</a></li>
-        <li><a href="#" class="hover:underline">RSS</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Bookmarks</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">Analytics</a></li>
+        <li><a href="#" class="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm">RSS</a></li>
         <li>
           <button
             id="showCommitDialogBtn"
@@ -90,10 +91,10 @@ try {
       class="whitespace-pre-wrap rounded-base bg-stone-100 p-4 font-mono text-sm dark:bg-stone-800"
       ><a
         href=`https://github.com/indra87g/indra87g.vercel.app/commit/${commitSha}`
-        class="hover:underline text-main"
+        class="hover:underline text-main focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline"
         target="_blank"
         rel="noopener noreferrer"
-      >{commitMessage}</a></pre
+      >{commitMessage} <Icon name="tabler:external-link" class="h-4 w-4 inline mb-1" aria-hidden="true" /><span class="sr-only">(opens in a new tab)</span></a></pre
     >
   </div>
 </dialog>
