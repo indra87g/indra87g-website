@@ -1,5 +1,6 @@
 ---
 import config from '@/config'
+import { cvConfig } from '@/config/cv'
 import Base from '@/layouts/Base.astro'
 import TimeLine from '@/components/cv/TimeLine.astro'
 import { Icon } from 'astro-icon/components'
@@ -11,12 +12,7 @@ import { Icon } from 'astro-icon/components'
   </div>
 
   <div class="mb-10 text-justify">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    {cvConfig.profileDescription}
   </div>
 
   <div class="mb-5">
@@ -24,14 +20,12 @@ import { Icon } from 'astro-icon/components'
   </div>
 
   <div class="time-line-container mb-10 grid gap-4">
-    <TimeLine
-      title="Sekolah Dasar (SD)"
-      subtitle="2015 sampai 2020 di SDN 37 Tanjung Beringin, Dairi, Sumatera Utara"
-    />
-    <TimeLine
-      title="Sekolah Menengah Pertama (SMP)"
-      subtitle="2021 sampai 2024 di SMPN 2 Sumbul, Dairi, Sumatera Utara"
-    />
+    {cvConfig.education.map((item) => (
+      <TimeLine
+        title={item.title}
+        subtitle={item.subtitle}
+      />
+    ))}
   </div>
 
   <div class="mb-5">
@@ -39,35 +33,14 @@ import { Icon } from 'astro-icon/components'
   </div>
 
   <div class="time-line-container mb-10">
-    <TimeLine
-      title="Founder di Asterix Technology"
-      subtitle="Dari 2023 sampai sekarang"
-    >
-      Saya adalah founder Asterix Technology, organisasi open source yang
-      bergerak di bidang teknologi. Saat ini memiliki 8 anggota.
-    </TimeLine>
-    <TimeLine
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident.
-    </TimeLine>
-    <TimeLine
-      title="Job Title at Project or Company Name"
-      subtitle="From [Start Date] to [End Date] at [Company], [City], [Country]"
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident.
-    </TimeLine>
+    {cvConfig.experience.map((item) => (
+      <TimeLine
+        title={item.title}
+        subtitle={item.subtitle}
+      >
+        {item.description}
+      </TimeLine>
+    ))}
   </div>
 
   <div class="mb-5">
@@ -75,54 +48,20 @@ import { Icon } from 'astro-icon/components'
   </div>
 
   <ul class="mx-6 mb-10 grid list-disc gap-2">
-    <li>
-      <a
-        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
-        href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/dqlab_1.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        FREECLASS: Data Science Fundamentals - DQLab
-        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
-        <span class="sr-only">(opens in a new tab)</span>
-      </a>
-    </li>
-    <li>
-      <a
-        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
-        href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/santrikoding_1.png"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        FullStack Javascript Developer dengan Express dan Vue - SantriKoding
-        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
-        <span class="sr-only">(opens in a new tab)</span>
-      </a>
-    </li>
-    <li>
-      <a
-        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
-        href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/idcamp2024_1.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Belajar Visualisasi Data - IDCamp IOH 2024
-        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
-        <span class="sr-only">(opens in a new tab)</span>
-      </a>
-    </li>
-    <li>
-      <a
-        class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
-        href="https://raw.githubusercontent.com/indra87g/indra87g/main/certificates/idcamp2024_2.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Memulai Pemrograman dengan Python - IDCamp IOH 2024
-        <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
-        <span class="sr-only">(opens in a new tab)</span>
-      </a>
-    </li>
+    {cvConfig.certifications.map((item) => (
+      <li>
+        <a
+          class="hover:text-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main rounded-sm inline-flex items-center gap-1"
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {item.title}
+          <Icon name="tabler:external-link" class="h-4 w-4" aria-hidden="true" />
+          <span class="sr-only">(opens in a new tab)</span>
+        </a>
+      </li>
+    ))}
   </ul>
 
   <div class="mb-5">
@@ -130,23 +69,8 @@ import { Icon } from 'astro-icon/components'
   </div>
 
   <ul class="mx-6 list-disc">
-    <li>Web Development Dasar (HTML, CSS, JavaScript) - Intermediate</li>
-    <li>UI/UX (Lunacy) - Beginner</li>
-    <li>
-      Data Science (Microsoft Excel, Numpy, Pandas, Matplotlib, Jupyter) -
-      Beginner
-    </li>
-    <li>AI/ML (Scikit-learn) - Beginner</li>
-    <li>
-      Backend Development (Python, Golang, C#, PHP, NodeJS, Bun, Hono) -
-      Intermediate
-    </li>
-    <li>Frontend Development (Vue, React) - Intermediate</li>
-    <li>DevOps (Vercel, Github Actions, Vagrant) - Beginner</li>
-    <li>Fullstack Development (Laravel, Flask) - Intermediate</li>
-    <li>Desktop Development (Tkinter, Electron) - Beginner</li>
-    <li>Mobile Development (Expo) - Beginner</li>
-    <li>Game Development (Pygame) - Intermediate</li>
-    <li>Linux - Intermediate</li>
+    {cvConfig.skills.map((skill) => (
+      <li>{skill}</li>
+    ))}
   </ul>
 </Base>
