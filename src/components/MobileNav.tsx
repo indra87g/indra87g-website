@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const MenuIcon = () => (
     <svg
@@ -40,6 +40,34 @@ export default function MobileNav({
     currentPath = '',
 }: { currentPath?: string }) {
     const [isOpen, setIsOpen] = useState(false)
+    const navRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                navRef.current &&
+                !navRef.current.contains(event.target as Node)
+            ) {
+                setIsOpen(false)
+            }
+        }
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setIsOpen(false)
+            }
+        }
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside)
+            document.addEventListener('keydown', handleKeyDown)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [isOpen])
 
     useEffect(() => {
         const handleResize = () => {
@@ -64,18 +92,20 @@ export default function MobileNav({
     }, [isOpen])
 
     return (
-        <div className="md:hidden">
+        <div className="md:hidden" ref={navRef}>
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 className="z-50 text-text dark:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isOpen}
+                aria-controls="mobile-menu"
             >
                 {isOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
 
             <div
+                id="mobile-menu"
                 className={`absolute right-4 top-[90px] z-40 w-48 rounded-base border-2 border-border bg-bg text-text transition-all duration-300 ease-in-out dark:border-main dark:bg-darkBg dark:text-main ${
                     isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}

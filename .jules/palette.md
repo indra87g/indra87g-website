@@ -9,3 +9,7 @@
 ## 2025-02-28 - Missing visual and screen reader indicators for external links
 **Learning:** Found that external links (`target="_blank"`) across multiple components (CV certificates, Footer commit dialog) lack both visual indicators for sighted users and auditory indicators for screen reader users. This means users are not informed before clicking that they will be taken out of the current context.
 **Action:** Consistently apply an inline `tabler:external-link` icon (hidden from screen readers via `aria-hidden="true"`) alongside an `.sr-only` span text like "(opens in a new tab)" to all external links. Additionally, wrap these links in `inline-flex items-center gap-1` to ensure correct alignment between the text and icon.
+
+## 2024-05-18 - Mobile Menu Accessibility and UX
+**Learning:** Custom dropdown/menu components (like the React mobile nav) are confusing for keyboard and screen-reader users without explicit closure methods (Escape key) and an easy way to back out (click outside). Missing `aria-controls` disconnects the toggle from the actual menu content.
+**Action:** Always implement "Escape to close" and "Click outside to close" paired with `aria-controls` for any custom dropdown component to provide an accessible and expected UX.
