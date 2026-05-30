@@ -43,6 +43,28 @@ export default function MobileNav({
     const navRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                // md breakpoint in Tailwind
+                setIsOpen(false)
+            }
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
+        }
+        return () => {
+            document.body.style.overflow = 'auto'
+        }
+    }, [isOpen])
+
+    useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
                 navRef.current &&
@@ -66,28 +88,6 @@ export default function MobileNav({
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
             document.removeEventListener('keydown', handleKeyDown)
-        }
-    }, [isOpen])
-
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) {
-                // md breakpoint in Tailwind
-                setIsOpen(false)
-            }
-        }
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
-
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'auto'
-        }
-        return () => {
-            document.body.style.overflow = 'auto'
         }
     }, [isOpen])
 

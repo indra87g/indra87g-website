@@ -10,6 +10,6 @@
 **Learning:** Found that external links (`target="_blank"`) across multiple components (CV certificates, Footer commit dialog) lack both visual indicators for sighted users and auditory indicators for screen reader users. This means users are not informed before clicking that they will be taken out of the current context.
 **Action:** Consistently apply an inline `tabler:external-link` icon (hidden from screen readers via `aria-hidden="true"`) alongside an `.sr-only` span text like "(opens in a new tab)" to all external links. Additionally, wrap these links in `inline-flex items-center gap-1` to ensure correct alignment between the text and icon.
 
-## 2024-05-18 - Mobile Menu Accessibility and UX
-**Learning:** Custom dropdown/menu components (like the React mobile nav) are confusing for keyboard and screen-reader users without explicit closure methods (Escape key) and an easy way to back out (click outside). Missing `aria-controls` disconnects the toggle from the actual menu content.
-**Action:** Always implement "Escape to close" and "Click outside to close" paired with `aria-controls` for any custom dropdown component to provide an accessible and expected UX.
+## 2025-02-28 - Custom dropdown and mobile menu accessibility
+**Learning:** Found that custom dropdown and mobile menu components built with React (e.g., `MobileNav.tsx`) were missing critical accessibility expected interactions: closing on `Escape` keypress, closing on clicking outside the component, and linking the toggle button to the expanding menu with `aria-controls`. Without these, keyboard and screen reader users can get trapped or disoriented.
+**Action:** When implementing or reviewing custom toggles or dropdown menus, ensure `useEffect` hooks bind `keydown` (for Escape) and `mousedown` (for click-outside) event listeners, and use `aria-controls` on the toggle mapped to the `id` of the menu content.
