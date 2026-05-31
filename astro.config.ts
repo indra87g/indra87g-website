@@ -36,8 +36,7 @@ export default defineConfig({
         pagefind(),
     ],
 
-    site: 'https://indra87g.pages.dev/',
-    output: "server",
+    site: 'https://hello.indra87g.pages.dev/',
     adapter: cloudflare({
         platformProxy: {
             enabled: true,
