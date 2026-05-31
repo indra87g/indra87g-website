@@ -37,7 +37,7 @@ export default defineConfig({
     ],
 
     site: 'https://indra87g.pages.dev/',
-    output: "static",
+    output: "server",
     adapter: cloudflare({
         platformProxy: {
             enabled: true,
