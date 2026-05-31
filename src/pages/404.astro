@@ -1,0 +1,19 @@
+---
+import Base from '@/layouts/Base.astro'
+---
+
+<Base meta={{ title: 'Page Not Found' }}>
+  <div class="flex flex-col items-center justify-center py-20 text-center">
+    <h1 class="text-6xl font-bold text-main mb-4">404</h1>
+    <h2 class="text-2xl font-semibold mb-6">Page Not Found</h2>
+    <p class="mb-8 max-w-md text-lg">
+      Oops! The page you are looking for doesn't exist or has been moved.
+    </p>
+    <a
+      href="/"
+      class="rounded-base border-2 border-border bg-main px-6 py-3 font-semibold text-text shadow-light transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black dark:border-darkBorder dark:shadow-dark dark:hover:shadow-none dark:focus-visible:shadow-none dark:focus-visible:ring-white"
+    >
+      Go Back Home
+    </a>
+  </div>
+</Base>

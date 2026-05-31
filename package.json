@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
-        "build": "astro build && pagefind --site dist",
+        "build": "astro build && pagefind --site dist/client",
         "lint": "biome lint --write",
         "format": "biome format --write",
         "preview": "astro preview"
