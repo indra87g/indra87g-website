@@ -15,7 +15,18 @@ const items = await getCollection('project')
 items.sort((a, b) => {
     return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 })
-const page = { data: items }
+const pageNum = parseInt(Astro.url.searchParams.get('page') || '1', 10);
+const pageSize = 10;
+const start = (pageNum - 1) * pageSize;
+const end = start + pageSize;
+const paginatedItems = items.slice(start, end);
+const page = {
+    data: paginatedItems,
+    url: {
+        prev: pageNum > 1 ? `/${'project'}?page=${pageNum - 1}` : undefined,
+        next: end < items.length ? `/${'project'}?page=${pageNum + 1}` : undefined,
+    }
+}
 ---
 
 <Base meta={{ title: `${config.title} - Project` }}>
