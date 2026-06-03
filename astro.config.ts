@@ -7,7 +7,6 @@ import icon from 'astro-icon'
 import sitemap from '@astrojs/sitemap'
 import svelte from '@astrojs/svelte'
 import pagefind from 'astro-pagefind'
-import cloudflare from '@astrojs/cloudflare'
 
 export default defineConfig({
     build: {
@@ -36,11 +35,6 @@ export default defineConfig({
         pagefind(),
     ],
 
-    site: 'https://indra87g.pages.dev/',
-    output: "server",
-    adapter: cloudflare({
-        platformProxy: {
-            enabled: true,
-        },
-    }),
+    site: 'https://indra87g.is-a.dev/',
+    output: 'static',
 })
