@@ -1,44 +1,38 @@
 ---
 import { Icon } from 'astro-icon/components'
 
-import { CONFIG_CLIENT } from '@/config/client.ts'
+import config from '@/config'
 
-const {
-    AUTHOR_EMAIL,
-    AUTHOR_FACEBOOK,
-    AUTHOR_LINKEDIN,
-    AUTHOR_GITHUB,
-    AUTHOR_BLUESKY,
-} = CONFIG_CLIENT
+const { email, social } = config
 
 const links = [
     {
-        href: `mailto:${AUTHOR_EMAIL}`,
+        href: `mailto:${email}`,
         label: 'Email',
         icon: 'tabler:mail',
         color: 'text-lime-600',
     },
     {
-        href: AUTHOR_FACEBOOK,
+        href: social.facebook,
         label: 'Facebook',
         icon: 'tabler:brand-facebook',
         color: 'text-blue-600',
     },
     {
-        href: AUTHOR_LINKEDIN,
+        href: social.linkedin,
         label: 'Linkedin',
         icon: 'tabler:brand-linkedin',
         color: 'text-blue-600',
     },
     {
-        href: AUTHOR_GITHUB,
+        href: social.github,
         label: 'Github',
         icon: 'tabler:brand-github',
         color: 'text-slate-600 dark:text-slate-400',
     },
     {
-        href: AUTHOR_BLUESKY,
-        label: 'Trakteer',
+        href: social.bluesky,
+        label: 'Bluesky',
         icon: 'tabler:brand-bluesky',
         color: 'text-sky-600',
     },

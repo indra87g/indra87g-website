@@ -1,23 +1,64 @@
 import type { ThemeObjectOrShikiThemeName } from 'astro-expressive-code'
 
 type Config = {
+    // Site / SEO
     author: string
     title: string
     description: string
+    url: string
     lang: string
+    email: string
     themes: {
         dark: ThemeObjectOrShikiThemeName
         light: ThemeObjectOrShikiThemeName
+    }
+    // Personal profile (homepage, etc.)
+    profile: {
+        username: string
+        username2: string
+        tagline: string
+        highlights: string[]
+    }
+    // Social / contact links
+    social: {
+        facebook: string
+        linkedin: string
+        bluesky: string
+        youtube: string
+        github: string
+        whatsapp: string
+        trakteer: string
     }
 }
 
 export default {
     author: 'Indra Sah Noeldy',
     title: 'indra87g',
-    description: 'Lorem ipsum dolor sit amet',
+    description:
+        'Personal website of Indra Sah Noeldy — developer sharing projects, blog posts, and notes on code.',
+    url: 'https://indra87g.is-a.dev',
     lang: 'en',
+    email: 'noeldycreator@gmail.com',
     themes: {
         dark: 'github-dark',
         light: 'github-light',
+    },
+    profile: {
+        username: 'indra87g',
+        username2: 'TwinightWheel50',
+        tagline: 'Fullstuck Developer with 3 years experience in building ...',
+        highlights: [
+            '🔋 Python & Golang enjoyer (with some PHP)',
+            '🔥 Vue.js x TypeScript *BEST MATCH!',
+        ],
+    },
+    social: {
+        facebook: 'https://facebook.com/indra87g',
+        linkedin: 'https://linkedin.com',
+        bluesky: 'https://indra87g.bsky.social',
+        youtube: 'https://youtube.com/@indra87g30spki',
+        github: 'https://github.com/indra87g',
+        whatsapp: 'https://wa.me/6289530428615',
+        trakteer: 'https://trakteer.id/nightw5050',
     },
 } satisfies Config
