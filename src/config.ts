@@ -48,17 +48,17 @@ export default {
         username2: 'TwinightWheel50',
         tagline: 'Fullstuck Developer with 3 years experience in building ...',
         highlights: [
-            '🔋 Python & Golang enjoyer (with some PHP)',
-            '🔥 Vue.js x TypeScript *BEST MATCH!',
+            '🔋 Rust & Javascript enjoyer',
+            '🔥 Vibe Coding + Have no life and job',
         ],
     },
     social: {
         facebook: 'https://facebook.com/indra87g',
         linkedin: 'https://linkedin.com',
         bluesky: 'https://indra87g.bsky.social',
-        youtube: 'https://youtube.com/@indra87g30spki',
+        youtube: 'https://youtube.com/@indra87g',
         github: 'https://github.com/indra87g',
-        whatsapp: 'https://wa.me/6289530428615',
-        trakteer: 'https://trakteer.id/nightw5050',
+        whatsapp: 'https://wa.me/6283172646529',
+        trakteer: 'https://trakteer.id/indra87g',
     },
 } satisfies Config
