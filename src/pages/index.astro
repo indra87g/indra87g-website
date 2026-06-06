@@ -40,12 +40,15 @@ const projects = projectEntries
 
     <div class="flex flex-col items-center text-center">
       <div class="group relative h-[200px] w-[200px] md:h-[250px] md:w-[250px]">
+        <!-- ⚡ Bolt: Optimize LCP by eager loading above-the-fold profile image -->
         <Image
           height={250}
           width={250}
           src="/profile.jpg"
           alt="indra87g Avatar"
           class="relative z-10 rounded-full border-[6px] border-main bg-main"
+          loading="eager"
+          fetchpriority="high"
         />
         <div
           class="absolute left-0 top-0 -z-10 h-full w-full rounded-full bg-gradient-to-br from-pink-400 to-purple-600 transition-transform group-hover:scale-110"
