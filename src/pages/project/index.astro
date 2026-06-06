@@ -7,22 +7,26 @@ import { formatDate } from '@/lib/helper'
 import Base from '@/layouts/Base.astro'
 import Card from '@/components/ProjectCard.astro'
 
-export async function getStaticPaths({
-    paginate,
-}: {
-    paginate: PaginateFunction
-}) {
-    const blogs: CollectionEntry<'project'>[] = await getCollection('project')
-    blogs.sort((a, b) => {
-        return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-    })
-    return paginate(blogs, { pageSize: 10 })
-}
 
 // ⚡ Bolt: Removed redundant `getCollection('project')` and sorting here.
 // Astro's getStaticPaths already paginates the sorted data and provides it via the `page` prop.
 // Re-fetching and sorting in the component rendering phase causes unnecessary processing.
-const { page } = Astro.props
+const items = await getCollection('project')
+items.sort((a, b) => {
+    return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+})
+const pageNum = parseInt(Astro.url.searchParams.get('page') || '1', 10);
+const pageSize = 10;
+const start = (pageNum - 1) * pageSize;
+const end = start + pageSize;
+const paginatedItems = items.slice(start, end);
+const page = {
+    data: paginatedItems,
+    url: {
+        prev: pageNum > 1 ? `/${'project'}?page=${pageNum - 1}` : undefined,
+        next: end < items.length ? `/${'project'}?page=${pageNum + 1}` : undefined,
+    }
+}
 ---
 
 <Base meta={{ title: `${config.title} - Project` }}>
