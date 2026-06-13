@@ -5,3 +5,6 @@
 ## 2023-10-27 - [Parallelize Multiple Astro Content Collection Fetches]
 **Learning:** Sequential `getCollection` calls in Astro pages (e.g., `const blogs = await getCollection('blog'); const projects = await getCollection('project');`) cause unnecessary I/O and parsing bottlenecks during the build process or SSR, as each collection fetch blocks the next.
 **Action:** Always use `Promise.all` when a page requires fetching multiple distinct collections simultaneously (e.g., `const [blogs, projects] = await Promise.all([getCollection('blog'), getCollection('project')]);`) to optimize data fetching performance.
+## 2024-05-30 - Client Directives in Astro Above-the-fold
+**Learning:** `client:visible` for components that are always visible initially (like headers) adds unnecessary `IntersectionObserver` overhead without deferring work.
+**Action:** Use `client:idle` to actually defer hydration for non-critical interactive components that are immediately visible, freeing up the main thread during initial page load.
