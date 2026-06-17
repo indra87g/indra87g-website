@@ -18,13 +18,13 @@ const pathname = Astro.url.pathname
       <a class={`mr-10 hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${pathname.startsWith('/blog') ? 'text-main font-bold' : ''}`} href="/blog" aria-current={pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a>
       <a class={`mr-10 hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${pathname.startsWith('/project') ? 'text-main font-bold' : ''}`} href="/project" aria-current={pathname.startsWith('/project') ? 'page' : undefined}>Project</a>
       <a class={`mr-10 hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${pathname.startsWith('/cv') ? 'text-main font-bold' : ''}`} href="/cv" aria-current={pathname.startsWith('/cv') ? 'page' : undefined}>CV</a>
-      <ThemeSwitcher client:load />
+      <ThemeSwitcher client:idle />
     </div>
 
     <!-- Mobile Menu -->
     <div class="flex items-center gap-4 md:hidden">
-      <ThemeSwitcher client:load />
-      <MobileNav currentPath={pathname} client:load />
+      <ThemeSwitcher client:idle />
+      <MobileNav currentPath={pathname} client:idle />
     </div>
   </div>
 </nav>

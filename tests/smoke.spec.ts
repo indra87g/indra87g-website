@@ -27,7 +27,9 @@ test('homepage exposes the skip-to-content a11y link', async ({ page }) => {
 test('cv page is reachable', async ({ page }) => {
     await page.goto('/cv')
     await expect(page).toHaveTitle(/cv/i)
-    await expect(page.getByText('Profil')).toBeVisible()
+    await expect(
+        page.getByText('Profil', { exact: true }).first(),
+    ).toBeVisible()
 })
 
 test('blog listing renders', async ({ page }) => {
@@ -38,5 +40,7 @@ test('blog listing renders', async ({ page }) => {
 test('unknown route serves the custom 404 page', async ({ page }) => {
     await page.goto('/this-route-definitely-does-not-exist')
     await expect(page.getByRole('heading', { name: '404' })).toBeVisible()
-    await expect(page.getByRole('link', { name: /go back home/i })).toBeVisible()
+    await expect(
+        page.getByRole('link', { name: /go back home/i }),
+    ).toBeVisible()
 })
