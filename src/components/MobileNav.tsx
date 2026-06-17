@@ -92,54 +92,80 @@ export default function MobileNav({
     }, [isOpen])
 
     return (
-        <div className="md:hidden" ref={navRef}>
+        <div className="md:hidden">
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="z-50 text-text dark:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
+                className={`relative text-text dark:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${isOpen ? 'opacity-0' : 'opacity-100'}`}
                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
             >
-                {isOpen ? <CloseIcon /> : <MenuIcon />}
+                <MenuIcon />
             </button>
 
+            {/* Overlay */}
+            <div
+                className={`fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+                aria-hidden="true"
+            />
+
+            {/* Sidebar */}
             <div
                 id="mobile-menu"
-                className={`absolute right-4 top-[90px] z-40 w-48 rounded-base border-2 border-border bg-bg text-text transition-all duration-300 ease-in-out dark:border-main dark:bg-darkBg dark:text-main ${
-                    isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                ref={navRef}
+                className={`fixed right-0 top-0 bottom-0 z-[70] w-64 border-l-2 border-border bg-bg text-text shadow-[-4px_0_0_0_#000] transition-transform duration-300 ease-in-out dark:border-darkBorder dark:bg-darkBg dark:text-main dark:shadow-[0_0_0_0_#000] ${
+                    isOpen ? 'translate-x-0' : 'translate-x-full'
                 }`}
             >
-                <div className="flex flex-col items-start gap-4 p-4">
-                    <a
-                        href="/blog"
-                        className={`hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/blog') ? 'text-main font-bold' : ''}`}
-                        aria-current={
-                            currentPath.startsWith('/blog') ? 'page' : undefined
-                        }
-                    >
-                        Blog
-                    </a>
-                    <a
-                        href="/project"
-                        className={`hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/project') ? 'text-main font-bold' : ''}`}
-                        aria-current={
-                            currentPath.startsWith('/project')
-                                ? 'page'
-                                : undefined
-                        }
-                    >
-                        Project
-                    </a>
-                    <a
-                        href="/cv"
-                        className={`hover:underline rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/cv') ? 'text-main font-bold' : ''}`}
-                        aria-current={
-                            currentPath.startsWith('/cv') ? 'page' : undefined
-                        }
-                    >
-                        CV
-                    </a>
+                <div className="flex flex-col h-full">
+                    <div className="flex items-center justify-between p-6 border-b-2 border-border dark:border-darkBorder bg-white dark:bg-secondaryBlack h-[70px]">
+                        <span className="font-heading text-xl">Menu</span>
+                        <button
+                            type="button"
+                            onClick={() => setIsOpen(false)}
+                            className="text-text dark:text-darkText rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main"
+                            aria-label="Close menu"
+                        >
+                            <CloseIcon />
+                        </button>
+                    </div>
+
+                    <div className="flex flex-col flex-1 p-6 gap-6 overflow-y-auto">
+                        <a
+                            href="/blog"
+                            className={`text-xl hover:underline hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/blog') ? 'text-main font-bold' : ''}`}
+                            aria-current={
+                                currentPath.startsWith('/blog')
+                                    ? 'page'
+                                    : undefined
+                            }
+                        >
+                            Blog
+                        </a>
+                        <a
+                            href="/project"
+                            className={`text-xl hover:underline hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/project') ? 'text-main font-bold' : ''}`}
+                            aria-current={
+                                currentPath.startsWith('/project')
+                                    ? 'page'
+                                    : undefined
+                            }
+                        >
+                            Project
+                        </a>
+                        <a
+                            href="/cv"
+                            className={`text-xl hover:underline hover:text-main rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main ${currentPath.startsWith('/cv') ? 'text-main font-bold' : ''}`}
+                            aria-current={
+                                currentPath.startsWith('/cv')
+                                    ? 'page'
+                                    : undefined
+                            }
+                        >
+                            CV
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
