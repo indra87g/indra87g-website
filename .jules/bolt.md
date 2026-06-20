@@ -8,3 +8,7 @@
 ## 2024-05-30 - Client Directives in Astro Above-the-fold
 **Learning:** `client:visible` for components that are always visible initially (like headers) adds unnecessary `IntersectionObserver` overhead without deferring work.
 **Action:** Use `client:idle` to actually defer hydration for non-critical interactive components that are immediately visible, freeing up the main thread during initial page load.
+
+## 2026-06-20 - [Replace Unthrottled Resize Listeners with MatchMedia]
+**Learning:** Using `window.addEventListener('resize', ...)` to track breakpoints in React components (like responsive nav menus) is a performance anti-pattern. It fires hundreds of times during a resize operation, causing synchronous evaluations of `window.innerWidth` on the main thread, which can lead to UI jank and layout thrashing.
+**Action:** When tracking CSS breakpoints in JS/React, always use `window.matchMedia('(min-width: ...px)').addEventListener('change', ...)`. This native API is vastly more efficient as it fires exactly once when the specific breakpoint is crossed, completely eliminating the continuous overhead of the resize event.

@@ -42,15 +42,24 @@ export default function MobileNav({
     const [isOpen, setIsOpen] = useState(false)
     const navRef = useRef<HTMLDivElement>(null)
 
+    // ⚡ Bolt: Replaced expensive unthrottled resize listener with matchMedia change listener.
+    // This reduces main thread blocking during window resize by firing only when the breakpoint is crossed, not continuously.
     useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 768) {
+        const mediaQuery = window.matchMedia('(min-width: 768px)')
+        const handleMediaChange = (e: MediaQueryListEvent) => {
+            if (e.matches) {
                 // md breakpoint in Tailwind
                 setIsOpen(false)
             }
         }
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+
+        // Check initial state
+        if (mediaQuery.matches) {
+            setIsOpen(false)
+        }
+
+        mediaQuery.addEventListener('change', handleMediaChange)
+        return () => mediaQuery.removeEventListener('change', handleMediaChange)
     }, [])
 
     useEffect(() => {
