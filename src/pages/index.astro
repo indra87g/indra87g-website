@@ -28,7 +28,7 @@ const projects = projectEntries
 
 <Base meta={{ title: `${config.title} - Homepage` }}>
   <div
-    class="mt-5 flex flex-wrap items-center justify-center gap-8 pb-12 text-text dark:text-darkText md:justify-between"
+    class="mt-5 flex flex-wrap items-start justify-start gap-8 pb-12 text-text dark:text-darkText md:justify-between"
   >
     <div class="max-w-md">
       <BrutalTag emoji="🤣" text="Fullstuck Developer" />
@@ -38,7 +38,7 @@ const projects = projectEntries
       </p>
     </div>
 
-    <div class="flex flex-col items-center text-center">
+    <div class="flex flex-col items-start text-left">
       <div class="group relative h-[200px] w-[200px] md:h-[250px] md:w-[250px]">
         <!-- ⚡ Bolt: Optimize LCP by eager loading above-the-fold profile image -->
         <Image
@@ -68,7 +68,7 @@ const projects = projectEntries
   </div>
 
   <div class="mt-16">
-    <h2 class="text-3xl font-bold text-center">Recent Posts</h2>
+    <h2 class="text-3xl font-bold ">Recent Posts</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
       {
         posts.map((post) => (
@@ -86,7 +86,7 @@ const projects = projectEntries
   </div>
 
   <div class="mt-16">
-    <h2 class="text-3xl font-bold text-center">Recent Projects</h2>
+    <h2 class="text-3xl font-bold ">Recent Projects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
       {
         projects.map((project) => (
@@ -103,14 +103,14 @@ const projects = projectEntries
     </div>
   </div>
 
-  <div class="mt-16 flex flex-col items-center justify-center gap-4">
-    <h2 class="text-3xl font-bold text-center">GitHub Stats</h2>
-    <p align="center">
+  <div class="mt-16 flex flex-col items-start justify-start gap-4">
+    <h2 class="text-3xl font-bold ">GitHub Stats</h2>
+    <p align="left">
       <img loading="lazy" decoding="async" src="https://github-readme-stats.vercel.app/api?username=indra87g&show_icons=true&theme=radical" alt="Indra's GitHub Stats" />
       <img loading="lazy" decoding="async" src="https://github-readme-streak-stats.herokuapp.com/?user=indra87g&theme=radical" alt="GitHub Streak Stats" />
     </p>
 
-    <p align="center">
+    <p align="left">
       <img loading="lazy" decoding="async" src="https://github-profile-trophy.vercel.app/?username=indra87g&theme=radical&margin-w=10&rank=A,AA,AAA,S,SS,SSS,?&row=2&column=3" alt="Trophies" />
     </p>
   </div>
