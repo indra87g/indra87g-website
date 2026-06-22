@@ -1,0 +1,128 @@
+{
+  "version": "1.2",
+  "media": {
+    "default_library": "repo_media",
+    "libraries": [
+      {
+        "key": "repo_media",
+        "label": "Repository media",
+        "references": {
+          "write": {
+            "mode": "root_relative",
+            "base_path": "/"
+          },
+          "allow_default_library_fallback": true
+        },
+        "limits": {
+          "max_file_size_mb": 10
+        },
+        "driver": "git",
+        "storage": {
+          "root_path": "public"
+        }
+      }
+    ]
+  },
+  "ssg_framework": "astro",
+  "frontmatter_format": "yaml",
+  "sitemap_url": "https://indra87g.my.id/sitemap-index.xml",
+  "publishing_mode": "editorial_workflow",
+  "collections": [
+    {
+      "name": "project",
+      "git_path": "/src/content/project/",
+      "file_extension": ".mdx",
+      "filename_pattern": "",
+      "collection_type": "flat",
+      "frontmatter_schema": [
+        {
+          "name": "title",
+          "type": "title",
+          "label": "Title"
+        },
+        {
+          "name": "description",
+          "type": "richtext",
+          "label": "Description"
+        },
+        {
+          "name": "heroImage",
+          "type": "image",
+          "label": "Hero Image"
+        },
+        {
+          "name": "draft",
+          "type": "boolean",
+          "label": "Draft",
+          "default": true
+        },
+        {
+          "name": "publishDate",
+          "type": "datetime",
+          "label": "Publish Date"
+        },
+        {
+          "name": "tags",
+          "type": "multiselect",
+          "label": "Tags",
+          "options": [
+            "php",
+            "web"
+          ],
+          "color": "blue"
+        }
+      ]
+    },
+    {
+      "name": "blog",
+      "git_path": "/src/content/blog/",
+      "file_extension": ".mdx",
+      "filename_pattern": "",
+      "collection_type": "flat",
+      "frontmatter_schema": [
+        {
+          "name": "title",
+          "type": "title",
+          "label": "Title"
+        },
+        {
+          "name": "description",
+          "type": "richtext",
+          "label": "Description"
+        },
+        {
+          "name": "heroImage",
+          "type": "image",
+          "label": "Hero Image"
+        },
+        {
+          "name": "heroAlt",
+          "type": "text",
+          "label": "Hero Alt"
+        },
+        {
+          "name": "draft",
+          "type": "boolean",
+          "label": "Draft",
+          "default": false
+        },
+        {
+          "name": "publishDate",
+          "type": "datetime",
+          "label": "Publish Date"
+        },
+        {
+          "name": "tags",
+          "type": "multiselect",
+          "label": "Tags",
+          "options": [
+            "windows",
+            "android",
+            "tutorial"
+          ],
+          "color": "blue"
+        }
+      ]
+    }
+  ]
+}
