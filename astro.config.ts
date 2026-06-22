@@ -5,7 +5,6 @@ import expressiveCode from 'astro-expressive-code'
 import mdx from '@astrojs/mdx'
 import icon from 'astro-icon'
 import sitemap from '@astrojs/sitemap'
-import svelte from '@astrojs/svelte'
 import pagefind from 'astro-pagefind'
 
 export default defineConfig({
@@ -31,7 +30,6 @@ export default defineConfig({
         mdx(),
         icon(),
         sitemap(),
-        svelte(),
         pagefind(),
     ],
 
