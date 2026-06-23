@@ -11,6 +11,7 @@ type Config = {
     themes: {
         dark: ThemeObjectOrShikiThemeName
         light: ThemeObjectOrShikiThemeName
+        verdance: ThemeObjectOrShikiThemeName
     }
     // Personal profile (homepage, etc.)
     profile: {
@@ -42,6 +43,7 @@ export default {
     themes: {
         dark: 'github-dark',
         light: 'github-light',
+        verdance: 'github-dark',
     },
     profile: {
         username: 'indra87g',
