@@ -19,7 +19,7 @@ const {
     <script defer src="https://cloud.umami.is/script.js" data-website-id="cfdc498a-5723-48b5-874b-a126717a68bb" is:inline></script>
   </head>
   <body
-    class="min-h-screen bg-bg px-5 font-base text-text scrollbar scrollbar-thumb-black dark:bg-darkBg dark:text-darkText dark:scrollbar-thumb-white flex flex-col"
+    class="min-h-screen bg-bg px-5 font-base text-text scrollbar scrollbar-thumb-black dark:scrollbar-thumb-white flex flex-col"
   >
     <a
       href="#main-content"
@@ -35,7 +35,7 @@ const {
     >
       <div class="flex justify-center">
         <div
-          class="w-full rounded-base border-2 border-border p-6 pt-10 shadow-light dark:border-darkBorder dark:shadow-dark transition-colors duration-300"
+          class="w-full rounded-base border-2 border-border p-6 pt-10 shadow-light transition-colors duration-300"
         >
           <slot />
         </div>
@@ -47,22 +47,27 @@ const {
       import config from '@/config'
 
       function colorMode() {
-        if (
-          localStorage.theme === 'dark' ||
-          (!('theme' in localStorage) &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches)
-        ) {
-          document.documentElement.classList.add('dark')
-          document.documentElement.setAttribute(
-            'data-theme',
-            config.themes.dark as string,
-          )
-        } else {
-          document.documentElement.classList.remove('dark')
-          document.documentElement.setAttribute(
-            'data-theme',
-            config.themes.light as string,
-          )
+        const theme = (() => {
+            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                return localStorage.getItem('theme')
+            }
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark'
+            }
+            return 'light'
+        })()
+
+        document.documentElement.classList.remove('dark')
+        document.documentElement.removeAttribute('data-theme')
+
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', config.themes.light as string)
+        } else if (theme === 'dark') {
+            document.documentElement.classList.add('dark')
+            document.documentElement.setAttribute('data-theme', config.themes.dark as string)
+        } else if (theme === 'verdance') {
+            document.documentElement.classList.add('dark')
+            document.documentElement.setAttribute('data-theme', 'verdance')
         }
       }
 

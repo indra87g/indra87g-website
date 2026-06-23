@@ -53,11 +53,16 @@ const siteDescription = description ?? config.description
     return 'light'
   })()
 
+  document.documentElement.classList.remove('dark')
+  document.documentElement.removeAttribute('data-theme')
+
   if (theme === 'light') {
-    document.documentElement.classList.remove('dark')
     document.documentElement.setAttribute('data-theme', 'github-light')
-  } else {
+  } else if (theme === 'dark') {
     document.documentElement.classList.add('dark')
     document.documentElement.setAttribute('data-theme', 'github-dark')
+  } else if (theme === 'verdance') {
+    document.documentElement.classList.add('dark')
+    document.documentElement.setAttribute('data-theme', 'verdance')
   }
 </script>

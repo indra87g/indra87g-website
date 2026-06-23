@@ -11,27 +11,25 @@ export default {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                main: '#FFDC58',
-                mainAccent: '#ffc800', // not needed for shadcn components
+                main: 'var(--main)',
+                mainAccent: 'var(--main-accent)', // not needed for shadcn components
                 overlay: 'rgba(0,0,0,0.8)', // background color overlay for alert dialogs, modals, etc.
 
-                // light mode
-                bg: '#FEF2E8',
-                text: '#000',
-                border: '#000',
+                bg: 'var(--bg)',
+                text: 'var(--text)',
+                border: 'var(--border)',
 
-                // dark mode
-                darkBg: '#374151',
-                darkText: '#eeefe9',
-                darkBorder: '#000',
-                secondaryBlack: '#212121', // opposite of plain white, not used pitch black because borders and box-shadows are that color
+                darkBg: 'var(--bg)',
+                darkText: 'var(--text)',
+                darkBorder: 'var(--border)',
+                secondaryBlack: 'var(--secondary-black)', // opposite of plain white, not used pitch black because borders and box-shadows are that color
             },
             borderRadius: {
-                base: '10px',
+                base: 'var(--radius)',
             },
             boxShadow: {
-                light: '0px 4px 0px 0px #000',
-                dark: '0px 4px 0px 0px #000',
+                light: 'var(--shadow)',
+                dark: 'var(--shadow)',
             },
             translate: {
                 boxShadowX: '0px',
@@ -51,18 +49,18 @@ export default {
             typography: (theme) => ({
                 lightMode: {
                     css: {
-                        '--tw-prose-kbd': theme('colors.text'),
-                        '--tw-prose-quote-borders': theme('colors.text'),
-                        '--tw-prose-bullets': theme('colors.text'),
-                        '--tw-prose-code': theme('colors.text'),
+                        '--tw-prose-kbd': 'var(--text)',
+                        '--tw-prose-quote-borders': 'var(--text)',
+                        '--tw-prose-bullets': 'var(--text)',
+                        '--tw-prose-code': 'var(--text)',
                     },
                 },
                 darkMode: {
                     css: {
-                        '--tw-prose-kbd': theme('colors.darkText'),
-                        '--tw-prose-quote-borders': theme('colors.darkText'),
-                        '--tw-prose-bullets': theme('colors.darkText'),
-                        '--tw-prose-code': theme('colors.darkText'),
+                        '--tw-prose-kbd': 'var(--text)',
+                        '--tw-prose-quote-borders': 'var(--text)',
+                        '--tw-prose-bullets': 'var(--text)',
+                        '--tw-prose-code': 'var(--text)',
                     },
                 },
             }),

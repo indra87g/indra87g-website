@@ -1,5 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
+    --bg: #FEF2E8;
+    --text: #000000;
+    --border: #000000;
+    --main: #FFDC58;
+    --main-accent: #ffc800;
+    --secondary-black: #212121;
+    --radius: 10px;
+    --shadow: 0px 4px 0px 0px #000;
+}
+
+.dark {
+    --bg: #374151;
+    --text: #eeefe9;
+    --border: #000000;
+    --main: #FFDC58;
+    --main-accent: #ffc800;
+    --secondary-black: #212121;
+    --radius: 10px;
+    --shadow: 0px 4px 0px 0px #000;
+}
+
+[data-theme="verdance"] {
+    --bg: #0e150f;
+    --text: #dde5da;
+    --border: #414941;
+    --main: #6bfb9a;
+    --main-accent: #00522c;
+    --secondary-black: #1a211a;
+    --radius: 0px;
+    --shadow: 0px 0px 0px 0px transparent;
+}
+
+@layer base {
+  html {
     transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+  body {
+    background-color: transparent;
+    color: inherit;
+  }
 }
 
 mark {
