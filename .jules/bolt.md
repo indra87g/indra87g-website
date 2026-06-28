@@ -12,3 +12,7 @@
 ## 2026-06-20 - [Replace Unthrottled Resize Listeners with MatchMedia]
 **Learning:** Using `window.addEventListener('resize', ...)` to track breakpoints in React components (like responsive nav menus) is a performance anti-pattern. It fires hundreds of times during a resize operation, causing synchronous evaluations of `window.innerWidth` on the main thread, which can lead to UI jank and layout thrashing.
 **Action:** When tracking CSS breakpoints in JS/React, always use `window.matchMedia('(min-width: ...px)').addEventListener('change', ...)`. This native API is vastly more efficient as it fires exactly once when the specific breakpoint is crossed, completely eliminating the continuous overhead of the resize event.
+
+## 2026-06-28 - [Cache Expensive Sync Operations During Astro Build]
+**Learning:** In Astro static site generation, synchronous operations like `execSync` placed in layout or frequently used component scripts (like `Footer.astro`) execute individually for *every* page generated. This sequentially blocks the main thread, causing severe build slowdowns as the site grows.
+**Action:** Always cache the results of expensive, invariant synchronous operations (like fetching git commit info) in the module scope or using `globalThis` so they execute only once per build process, significantly improving `pnpm build` times.

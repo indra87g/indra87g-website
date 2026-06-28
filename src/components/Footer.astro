@@ -3,18 +3,26 @@ import { execSync } from 'node:child_process'
 import { Icon } from 'astro-icon/components'
 
 const today = new Date()
-let commitMessage = 'No commit info'
-let commitSha = 'unknown'
 
-try {
-    commitMessage = execSync(
-        'git log -1 --pretty=%B --invert-grep --grep="^Apply patch"',
-    )
-        .toString()
-        .trim()
-    commitSha = execSync('git rev-parse --short HEAD').toString().trim()
-} catch (e) {
-    console.error('Error getting git info:', e)
+// ⚡ Bolt: Cache git commit info in globalThis to prevent redundant synchronous `execSync`
+// execution for every single page rendered during the build process, reducing build time.
+let commitMessage = globalThis.__BOLT_GIT_COMMIT_MSG || 'No commit info'
+let commitSha = globalThis.__BOLT_GIT_COMMIT_SHA || 'unknown'
+
+if (!globalThis.__BOLT_GIT_COMMIT_MSG) {
+    try {
+        commitMessage = execSync(
+            'git log -1 --pretty=%B --invert-grep --grep="^Apply patch"',
+        )
+            .toString()
+            .trim()
+        commitSha = execSync('git rev-parse --short HEAD').toString().trim()
+
+        globalThis.__BOLT_GIT_COMMIT_MSG = commitMessage
+        globalThis.__BOLT_GIT_COMMIT_SHA = commitSha
+    } catch (e) {
+        console.error('Error getting git info:', e)
+    }
 }
 ---
 
